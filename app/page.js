@@ -86,7 +86,7 @@ const content = {
         { name: 'n8n', desc: 'Motor de los agentes. Lógica y flujos.' },
         { name: 'Supabase', desc: 'Base de datos y autenticación.' },
         { name: 'Next.js', desc: 'Dashboard del cliente. Web app.' },
-        { name: 'Claude (Anthropic)', desc: 'LLM que da inteligencia a los agentes.' },
+        { name: 'LLM Engine', desc: 'Modelos de lenguaje que dan inteligencia a los agentes.' },
       ],
     },
     market: {
@@ -186,7 +186,7 @@ const content = {
           { name: 'Creación de sitio web (Elton)', value: '€75–250', type: 'Pago único' },
           { name: 'Setup & onboarding premium', value: '€99', type: 'Pago único' },
           { name: 'Plan anual', value: '2 meses gratis', type: 'Incentivo retención' },
-          { name: 'Saturnlab bundle (enterprise)', value: '€500+/mes', type: 'Formación + agentes' },
+          { name: 'Pepino Enterprise bundle', value: '€500+/mes', type: 'Suite completa' },
         ],
       },
       unit: {
@@ -205,7 +205,7 @@ const content = {
       label: '05',
       section: 'Proyecciones Financieras',
       title: 'Los números.',
-      intro: 'Modelo conservador basado en crecimiento orgánico a través del ecosistema Saturnlab y referidos. Sin gasto en paid ads en los primeros 12 meses.',
+      intro: 'Modelo conservador basado en crecimiento orgánico a través de la base existente de usuarios y referidos. Sin gasto en paid ads en los primeros 12 meses.',
       projections: [
         {
           year: 'Año 1',
@@ -276,7 +276,7 @@ const content = {
       moat: {
         title: 'Ventaja competitiva',
         items: [
-          { title: 'Distribución Saturnlab', desc: '20K+ suscriptores en LATAM ya expuestos a la marca. Canal de adquisición gratuito y confiable.' },
+          { title: 'Base propia de usuarios', desc: '20K+ usuarios en LATAM ya expuestos a la marca. Canal de adquisición orgánico y de alta confianza.' },
           { title: 'Agentes con identidad', desc: 'Paco, Mateo, Lucciano — no son bots. Son personajes. El cliente los recuerda, los recomienda y los presenta a otros negocios.' },
           { title: 'WhatsApp como moat', desc: 'Una vez que el número del cliente está conectado y sus clientes conocen al agente, el switching cost es altísimo. Cada contacto en la agenda del cliente es un lock-in.' },
           { title: 'Velocidad de activación', desc: 'Competidores tardan días en implementar. Nosotros, minutos. Esa diferencia es el primer "wow" que genera boca a boca.' },
@@ -287,13 +287,13 @@ const content = {
       label: '07',
       section: 'Equipo',
       title: 'Quiénes somos.',
-      intro: 'Equipo fundador con experiencia en producto, IA y acceso directo al mercado objetivo a través de Saturnlab.',
+      intro: 'Equipo fundador con más de 15 años en SaaS y experiencia directa en el ecosistema de mensajería empresarial en LATAM.',
       members: [
         {
           name: 'Manuel Achinelli',
           role: 'Fundador & CEO',
-          bio: 'Builder. Creó Saturnlab, plataforma de formación en IA para LATAM con más de 20K suscriptores. Experiencia en producto, distribución y ecosistema AI. Contacto directo con el mercado objetivo.',
-          email: 'manuel@voltchat.com',
+          bio: 'Más de 15 años construyendo y escalando empresas de Software as a Service en LATAM. Formó parte del equipo de Sirena —plataforma de WhatsApp Business para empresas— durante su proceso de salida a bolsa (IPO). Trayectoria en producto, go-to-market y crecimiento en compañías cuyo canal principal es WhatsApp. Conoce el dolor del cliente desde adentro: lleva años viendo cómo las PyMEs pierden ventas porque no pueden responder a tiempo.',
+          email: 'manu@pepino.ai',
           color: '#A0FF79',
         },
       ],
@@ -308,7 +308,7 @@ const content = {
       advisors: {
         title: 'Red de apoyo',
         items: [
-          'Ecosistema Saturnlab (20K+ profesionales en LATAM + España)',
+          'Comunidad propia de Pepino AI (20K+ profesionales en LATAM + España)',
           'Red de agencias digitales aliadas para canal de distribución',
           'Comunidades de emprendedores en Argentina, México y España',
         ],
@@ -323,9 +323,9 @@ const content = {
           phase: 'Fase 1',
           period: 'Meses 1–3',
           color: '#A0FF79',
-          title: 'Saturnlab + Founders',
+          title: 'Early Adopters + Founders',
           actions: [
-            '100 clientes beta a través de la base de Saturnlab',
+            '100 clientes beta a través de la base existente de usuarios',
             'Precio 50% descuento a cambio de feedback',
             'Casos de éxito documentados por vertical',
             'Iteración rápida del producto con usuarios reales',
@@ -341,7 +341,7 @@ const content = {
             'Canal de YouTube / TikTok mostrando casos reales',
             'WhatsApp grupos de emprendedores (seeding)',
             'Programa de referidos (€30 por cliente referido activo)',
-            'Primera campaña de email a lista de Saturnlab (20K+)',
+            'Primera campaña de email a nuestra base de usuarios (20K+)',
           ],
           target: '200 agentes activos',
         },
@@ -362,7 +362,7 @@ const content = {
       acquisition: {
         title: 'Canales de adquisición',
         items: [
-          { channel: 'Saturnlab ecosystem', cost: 'Orgánico', conversion: 'Alta (confianza previa)' },
+          { channel: 'Comunidad Pepino AI', cost: 'Orgánico', conversion: 'Alta (confianza previa)' },
           { channel: 'Referidos de clientes', cost: '€30 comisión', conversion: 'Muy alta' },
           { channel: 'Contenido (YT, TikTok)', cost: 'Tiempo', conversion: 'Media' },
           { channel: 'Agencias partners', cost: '20–30% revenue share', conversion: 'Alta' },
@@ -379,7 +379,7 @@ const content = {
           q: 'Q3 2026',
           color: '#A0FF79',
           items: [
-            'Beta privada con 50 negocios de Saturnlab',
+            'Beta privada con 50 negocios early adopters',
             'Agente Paco (turnos) en producción',
             'Dashboard v1 con métricas básicas',
             'Integración Evolution API estable',
@@ -415,7 +415,7 @@ const content = {
             'Expansión a España',
             'Plan Enterprise con SLA',
             'API pública para desarrolladores',
-            'Bundle Saturnlab Enterprise',
+            'Bundle Pepino Enterprise',
           ],
           status: 'Planificado',
         },
@@ -429,7 +429,7 @@ const content = {
       title: 'Fresco, rápido, sin fricción.',
       sub: 'Pepino AI.',
       contact: 'Contacto para inversores',
-      email: 'manuel@voltchat.com',
+      email: 'manu@pepino.ai',
       version: 'v1.0 · Junio 2026 · Confidencial',
     },
   },
@@ -516,7 +516,7 @@ const content = {
         { name: 'n8n', desc: "Agent engine. Logic and workflows." },
         { name: 'Supabase', desc: 'Database and authentication.' },
         { name: 'Next.js', desc: 'Customer dashboard. Web app.' },
-        { name: 'Claude (Anthropic)', desc: 'LLM that powers agent intelligence.' },
+        { name: 'LLM Engine', desc: 'Language models that power agent intelligence.' },
       ],
     },
     market: {
@@ -616,7 +616,7 @@ const content = {
           { name: 'Website creation (Elton)', value: '€75–250', type: 'One-time' },
           { name: 'Premium setup & onboarding', value: '€99', type: 'One-time' },
           { name: 'Annual plan', value: '2 months free', type: 'Retention incentive' },
-          { name: 'Saturnlab bundle (enterprise)', value: '€500+/month', type: 'Training + agents' },
+          { name: 'Pepino Enterprise bundle', value: '€500+/month', type: 'Full suite' },
         ],
       },
       unit: {
@@ -635,7 +635,7 @@ const content = {
       label: '05',
       section: 'Financial Projections',
       title: 'The numbers.',
-      intro: 'Conservative model based on organic growth through the Saturnlab ecosystem and referrals. No paid advertising spend in the first 12 months.',
+      intro: 'Conservative model based on organic growth through our existing user base and referrals. No paid advertising spend in the first 12 months.',
       projections: [
         {
           year: 'Year 1',
@@ -706,7 +706,7 @@ const content = {
       moat: {
         title: 'Competitive advantages',
         items: [
-          { title: 'Saturnlab distribution', desc: '20K+ subscribers in LATAM already exposed to the brand. A free, trusted acquisition channel.' },
+          { title: 'Owned user base', desc: '20K+ users in LATAM already exposed to the brand. An organic, high-trust acquisition channel.' },
           { title: 'Agents with identity', desc: "Paco, Mateo, Lucciano — they're not bots. They're characters. Customers remember them, recommend them, and introduce them to other businesses." },
           { title: 'WhatsApp as a moat', desc: "Once the customer's number is connected and their clients know the agent, switching costs are enormous. Every contact in the customer's address book is a lock-in." },
           { title: 'Activation speed', desc: 'Competitors take days to implement. We take minutes. That difference is the first "wow" that generates word of mouth.' },
@@ -717,13 +717,13 @@ const content = {
       label: '07',
       section: 'Team',
       title: 'Who we are.',
-      intro: 'Founding team with product and AI experience and direct access to the target market through Saturnlab.',
+      intro: 'Founding team with 15+ years in SaaS and hands-on experience in the WhatsApp business messaging ecosystem across LATAM.',
       members: [
         {
           name: 'Manuel Achinelli',
           role: 'Founder & CEO',
-          bio: 'Builder. Created Saturnlab, an AI training platform for LATAM with over 20K subscribers. Experience in product, distribution, and the AI ecosystem. Direct access to the target market.',
-          email: 'manuel@voltchat.com',
+          bio: 'Over 15 years building and scaling Software as a Service companies in LATAM. Was part of the Sirena team —a WhatsApp Business platform for enterprises— through its IPO process. Track record in product, go-to-market, and growth at companies where WhatsApp is the core channel. He knows the customer pain from the inside: years of watching SMBs lose sales because they can\'t respond fast enough.',
+          email: 'manu@pepino.ai',
           color: '#A0FF79',
         },
       ],
@@ -738,7 +738,7 @@ const content = {
       advisors: {
         title: 'Support network',
         items: [
-          'Saturnlab ecosystem (20K+ professionals in LATAM + Spain)',
+          'Pepino AI community (20K+ professionals in LATAM + Spain)',
           'Network of digital agency partners for distribution',
           'Entrepreneur communities in Argentina, Mexico, and Spain',
         ],
@@ -753,9 +753,9 @@ const content = {
           phase: 'Phase 1',
           period: 'Months 1–3',
           color: '#A0FF79',
-          title: 'Saturnlab + Founders',
+          title: 'Early Adopters + Founders',
           actions: [
-            '100 beta customers from the Saturnlab base',
+            '100 beta customers from our existing user base',
             '50% discount in exchange for feedback',
             'Documented success stories by vertical',
             'Rapid product iteration with real users',
@@ -771,7 +771,7 @@ const content = {
             'YouTube / TikTok channel showing real cases',
             'Entrepreneur WhatsApp groups (seeding)',
             'Referral program (€30 per active referred customer)',
-            'First email campaign to Saturnlab list (20K+)',
+            'First email campaign to our user base (20K+)',
           ],
           target: '200 active agents',
         },
@@ -792,7 +792,7 @@ const content = {
       acquisition: {
         title: 'Acquisition channels',
         items: [
-          { channel: 'Saturnlab ecosystem', cost: 'Organic', conversion: 'High (pre-existing trust)' },
+          { channel: 'Pepino AI community', cost: 'Organic', conversion: 'High (pre-existing trust)' },
           { channel: 'Customer referrals', cost: '€30 commission', conversion: 'Very high' },
           { channel: 'Content (YT, TikTok)', cost: 'Time', conversion: 'Medium' },
           { channel: 'Agency partners', cost: '20–30% revenue share', conversion: 'High' },
@@ -809,7 +809,7 @@ const content = {
           q: 'Q3 2026',
           color: '#A0FF79',
           items: [
-            'Private beta with 50 Saturnlab businesses',
+            'Private beta with 50 early adopter businesses',
             'Paco agent (appointments) in production',
             'Dashboard v1 with basic metrics',
             'Stable Evolution API integration',
@@ -845,7 +845,7 @@ const content = {
             'Expansion to Spain',
             'Enterprise plan with SLA',
             'Public API for developers',
-            'Saturnlab Enterprise bundle',
+            'Pepino Enterprise bundle',
           ],
           status: 'Planned',
         },
@@ -859,7 +859,7 @@ const content = {
       title: 'Fresh, fast, frictionless.',
       sub: 'Pepino AI.',
       contact: 'Investor contact',
-      email: 'manuel@voltchat.com',
+      email: 'manu@pepino.ai',
       version: 'v1.0 · June 2026 · Confidential',
     },
   },
@@ -867,14 +867,17 @@ const content = {
 
 // ─── COMPONENTS ───────────────────────────────────────────────────────────────
 
+const DISP = "'Funnel Sans', sans-serif"
+const MONO = "'JetBrains Mono', monospace"
+
 const s = {
-  mono: { fontFamily: "'JetBrains Mono', monospace" },
-  lbl: { fontFamily: "'JetBrains Mono', monospace", fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#A0FF79', fontWeight: 500 },
-  num: { fontFamily: "'JetBrains Mono', monospace", fontSize: 11, letterSpacing: '0.1em', color: '#7E8C7C' },
+  mono: { fontFamily: MONO },
+  lbl: { fontFamily: MONO, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#A0FF79', fontWeight: 500 },
+  num: { fontFamily: MONO, fontSize: 11, letterSpacing: '0.1em', color: '#7E8C7C' },
   secHead: { display: 'flex', alignItems: 'baseline', gap: 14, marginBottom: 12 },
-  h2: { fontWeight: 800, fontSize: 'clamp(32px, 5vw, 52px)', letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 24, color: '#F4F7F2' },
-  lede: { fontSize: 18, lineHeight: 1.65, color: '#B6C4B2', maxWidth: 680, fontWeight: 300, marginBottom: 40 },
-  body: { fontSize: 15, lineHeight: 1.7, color: '#B6C4B2', maxWidth: 680, fontWeight: 300 },
+  h2: { fontFamily: DISP, fontWeight: 800, fontSize: 'clamp(32px, 5vw, 52px)', letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 24, color: '#F4F7F2' },
+  lede: { fontFamily: DISP, fontSize: 18, lineHeight: 1.65, color: '#B6C4B2', maxWidth: 680, fontWeight: 300, marginBottom: 40 },
+  body: { fontFamily: DISP, fontSize: 15, lineHeight: 1.7, color: '#B6C4B2', maxWidth: 680, fontWeight: 300 },
   page: { maxWidth: 1100, margin: '0 auto', padding: '100px 48px', borderBottom: '1px solid #243026' },
   check: { color: '#A0FF79', fontSize: 14 },
   cross: { color: '#FF6B5E', fontSize: 14 },
@@ -883,7 +886,7 @@ const s = {
 function Tag({ children, color = '#A0FF79' }) {
   return (
     <span style={{
-      fontFamily: "'JetBrains Mono', monospace",
+      fontFamily: MONO,
       fontSize: 10,
       fontWeight: 700,
       letterSpacing: '0.06em',
@@ -901,7 +904,7 @@ function Stat({ value, label }) {
   return (
     <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 16, padding: '28px 24px' }}>
       <div style={{ fontWeight: 800, fontSize: 36, letterSpacing: '-0.03em', color: '#A0FF79', lineHeight: 1 }}>{value}</div>
-      <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, letterSpacing: '0.08em', color: '#7E8C7C', marginTop: 8, textTransform: 'uppercase' }}>{label}</div>
+      <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.08em', color: '#7E8C7C', marginTop: 8, textTransform: 'uppercase' }}>{label}</div>
     </div>
   )
 }
@@ -936,7 +939,7 @@ function AgentCard({ agent }) {
               <span style={{ fontWeight: 800, fontSize: 17, color: '#F4F7F2', letterSpacing: '-0.01em' }}>{agent.name}</span>
               <Tag color={agent.color}>{agent.role}</Tag>
             </div>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#7E8C7C' }}>{agent.price}</div>
+            <div style={{ fontFamily: MONO, fontSize: 11, color: '#7E8C7C' }}>{agent.price}</div>
           </div>
         </div>
         <div style={{ color: '#7E8C7C', fontSize: 20, transition: 'transform 0.2s', transform: open ? 'rotate(180deg)' : 'none' }}>›</div>
@@ -973,13 +976,13 @@ function PricingCard({ plan }) {
         <div style={{
           position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)',
           background: '#A0FF79', color: '#0B0E0C',
-          fontFamily: "'JetBrains Mono', monospace", fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
+          fontFamily: MONO, fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
           padding: '4px 12px', borderRadius: 20,
           whiteSpace: 'nowrap',
         }}>{plan.badge}</div>
       )}
       <div>
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#7E8C7C', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>{plan.name}</div>
+        <div style={{ fontFamily: MONO, fontSize: 11, color: '#7E8C7C', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>{plan.name}</div>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
           <span style={{ fontWeight: 800, fontSize: 38, letterSpacing: '-0.03em', color: '#F4F7F2' }}>{plan.price}</span>
           {plan.period && <span style={{ fontSize: 13, color: '#7E8C7C' }}>{plan.period}</span>}
@@ -1025,13 +1028,13 @@ export default function BusinessPlan() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginRight: 8 }}>
           <CucumberLogo size={26} />
           <span style={{ fontWeight: 800, fontSize: 16, letterSpacing: '-0.02em' }}>
-            Pepino<span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.62em', color: '#A0FF79', verticalAlign: 'super', marginLeft: 2 }}>AI</span>
+            Pepino<span style={{ fontFamily: MONO, fontSize: '0.62em', color: '#A0FF79', verticalAlign: 'super', marginLeft: 2 }}>AI</span>
           </span>
         </div>
         <div style={{ display: 'flex', gap: 6, marginLeft: 8, overflow: 'auto', flex: 1 }}>
           {c.nav.links.map((link, i) => (
             <a key={i} href={`#${navIds[i]}`} style={{
-              fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase',
+              fontFamily: MONO, fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase',
               color: '#7E8C7C', textDecoration: 'none', padding: '5px 10px', borderRadius: 8, whiteSpace: 'nowrap',
               transition: 'color 0.15s',
             }}
@@ -1041,7 +1044,7 @@ export default function BusinessPlan() {
           ))}
         </div>
         <button onClick={() => setLang(lang === 'es' ? 'en' : 'es')} style={{
-          fontFamily: "'JetBrains Mono', monospace", fontSize: 10, fontWeight: 700, letterSpacing: '0.12em',
+          fontFamily: MONO, fontSize: 10, fontWeight: 700, letterSpacing: '0.12em',
           color: '#A0FF79', background: 'rgba(160,255,121,0.08)', border: '1px solid rgba(160,255,121,0.25)',
           borderRadius: 8, padding: '6px 12px', cursor: 'pointer', textTransform: 'uppercase',
           flexShrink: 0,
@@ -1462,7 +1465,7 @@ export default function BusinessPlan() {
         </div>
         <div style={{ fontWeight: 800, fontSize: 'clamp(22px, 4vw, 38px)', letterSpacing: '-0.03em' }}>
           <span style={{ color: '#A0FF79' }}>Pepino</span>
-          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.55em', verticalAlign: 'super', marginLeft: 4 }}>AI</span>
+          <span style={{ fontFamily: MONO, fontSize: '0.55em', verticalAlign: 'super', marginLeft: 4 }}>AI</span>
         </div>
         <div style={{ height: 32 }} />
         <div style={{ ...s.mono, fontSize: 10, color: '#7E8C7C', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 4 }}>

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 :root {
   --green: #A0FF79;
@@ -13,7 +12,7 @@
   --fg3: #7E8C7C;
   --border: #243026;
   --border2: #324034;
-  --disp: 'Inter', sans-serif;
+  --disp: 'Funnel Sans', sans-serif;
   --mono: 'JetBrains Mono', monospace;
   --maxw: 1100px;
 }
@@ -25,7 +24,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body {
   background: var(--black);
   color: var(--off);
-  font-family: var(--disp);
+  font-family: 'Funnel Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   line-height: 1.6;
 }
