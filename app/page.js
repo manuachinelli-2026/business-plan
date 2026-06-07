@@ -93,7 +93,7 @@ const content = {
       label: '03',
       section: 'Mercado',
       title: 'La oportunidad de mercado.',
-      intro: 'WhatsApp no es una opción en América Latina — es la infraestructura de comunicación. La penetración supera el 90% en Argentina, México, Brasil y España. Para las PyMEs, es el canal donde llegan los clientes, se confirman reservas y se cierran ventas. Hoy ese canal está sin automatizar.',
+      intro: 'WhatsApp no es una opción — es infraestructura de comunicación. En LATAM y España la penetración supera el 90%. En Europa, más de 2.000 millones de personas lo usan a diario. Para las PyMEs en todo el mundo, es el canal donde llegan los clientes, se confirman reservas y se cierran ventas. Hoy ese canal está sin automatizar.',
       tam: {
         label: 'TAM',
         title: 'Total Addressable Market',
@@ -110,7 +110,7 @@ const content = {
         label: 'SOM',
         title: 'Serviceable Obtainable Market',
         value: '$84 M',
-        desc: '100K negocios en Argentina, México y España en los primeros 24 meses. €70/mes promedio.',
+        desc: '100K negocios en LATAM y España en los primeros 24 meses, con apertura hacia Europa. €70/mes promedio.',
       },
       verticals: {
         title: 'Verticales prioritarias',
@@ -213,7 +213,7 @@ const content = {
           agents: '500',
           customers: '280',
           mrr: '€21K',
-          milestone: 'Product-market fit. Primeros 100 clientes pagos. Saturar Argentina.',
+          milestone: 'Product-market fit demostrado. Primeros 100 clientes pagos. Equipo de ventas operativo.',
         },
         {
           year: 'Año 2',
@@ -259,7 +259,7 @@ const content = {
       label: '06',
       section: 'Competencia',
       title: 'El ecosistema.',
-      intro: 'El mercado de automatización de WhatsApp está fragmentado entre soluciones genéricas, plataformas complejas y freelancers sin escalabilidad. Pepino AI ocupa el espacio que nadie ha llenado: agentes especializados con personalidad, para PyMEs, en español, listos en minutos.',
+      intro: 'El mercado de automatización de WhatsApp está fragmentado entre soluciones genéricas, plataformas complejas y freelancers sin escalabilidad. Pepino AI ocupa el espacio que nadie ha llenado: agentes especializados con personalidad, para PyMEs de cualquier mercado, listos en minutos.',
       matrix: {
         headers: ['', 'Pepino AI', 'ManyChat', 'Chatbase', 'Tidio', 'Freelancer'],
         rows: [
@@ -300,9 +300,10 @@ const content = {
       hiring: {
         title: 'Próximas incorporaciones',
         roles: [
-          { role: 'Head of Growth / Sales', priority: 'Q3 2026' },
-          { role: 'Full-Stack Developer (Next.js / n8n)', priority: 'Q3 2026' },
+          { role: 'Sales Rep #1 (outbound)', priority: 'Q3 2026' },
+          { role: 'Sales Rep #2 (demos / cierre)', priority: 'Q3 2026' },
           { role: 'Customer Success Manager', priority: 'Q4 2026' },
+          { role: 'Full-Stack Developer (Next.js / n8n)', priority: 'Q1 2027' },
         ],
       },
       advisors: {
@@ -310,7 +311,7 @@ const content = {
         items: [
           'Comunidad propia de Pepino AI (20K+ profesionales en LATAM + España)',
           'Red de agencias digitales aliadas para canal de distribución',
-          'Comunidades de emprendedores en Argentina, México y España',
+          'Comunidades de emprendedores en LATAM y Europa',
         ],
       },
     },
@@ -321,42 +322,42 @@ const content = {
       phases: [
         {
           phase: 'Fase 1',
-          period: 'Meses 1–3',
+          period: 'Q3 2026',
           color: '#A0FF79',
-          title: 'Early Adopters + Founders',
+          title: 'Armar el equipo de ventas',
           actions: [
-            '100 clientes beta a través de la base existente de usuarios',
-            'Precio 50% descuento a cambio de feedback',
-            'Casos de éxito documentados por vertical',
-            'Iteración rápida del producto con usuarios reales',
+            'El producto ya funciona — el foco es salir a vender',
+            'Contratar los primeros sales reps (outbound + demos)',
+            'Definir el pitch y los verticales prioritarios',
+            'Primeros 50 clientes pagos con venta directa founder-led',
           ],
-          target: '50 agentes activos',
+          target: '50 clientes pagos',
         },
         {
           phase: 'Fase 2',
-          period: 'Meses 4–6',
+          period: 'Q4 2026',
           color: '#64a0ff',
-          title: 'Contenido + Comunidades',
+          title: 'Equipo de Customer Success',
           actions: [
-            'Canal de YouTube / TikTok mostrando casos reales',
-            'WhatsApp grupos de emprendedores (seeding)',
-            'Programa de referidos (€30 por cliente referido activo)',
-            'Primera campaña de email a nuestra base de usuarios (20K+)',
+            'Sales team a plena operación: pipeline, demos, cierre',
+            'Contratar primer Customer Success Manager',
+            'Onboarding estructurado y métricas de retención',
+            'Programa de referidos activo (€30 por cliente referido)',
           ],
-          target: '200 agentes activos',
+          target: '200 clientes pagos',
         },
         {
           phase: 'Fase 3',
-          period: 'Meses 7–12',
+          period: 'Q1–Q2 2027',
           color: '#ffb432',
-          title: 'Partnerships + Paid',
+          title: 'Robustizar producto + expansión',
           actions: [
-            'Canal de partners: agencias digitales que venden Pepino a sus clientes',
-            'Primeras campañas de Meta Ads segmentadas por vertical',
-            'Integración con sistemas de reservas existentes (Fresha, Mindbody)',
-            'Expansión a México y España con equipo local',
+            'Con ingresos estables, contratar developers para fortalecer el producto',
+            'Expansión a nuevos mercados: México, España y Europa',
+            'Canal de partners: agencias digitales que revenden Pepino',
+            'Integraciones con sistemas de reservas (Fresha, Mindbody)',
           ],
-          target: '500 agentes activos',
+          target: '500 clientes pagos',
         },
       ],
       acquisition: {
@@ -379,10 +380,10 @@ const content = {
           q: 'Q3 2026',
           color: '#A0FF79',
           items: [
-            'Beta privada con 50 negocios early adopters',
-            'Agente Paco (turnos) en producción',
-            'Dashboard v1 con métricas básicas',
-            'Integración Evolution API estable',
+            'Producto en producción y funcionando',
+            'Contratar primeros sales reps',
+            'Primeras 50 cuentas pagando (venta directa)',
+            'Pipeline de ventas estructurado',
           ],
           status: 'En curso',
         },
@@ -390,10 +391,10 @@ const content = {
           q: 'Q4 2026',
           color: '#64a0ff',
           items: [
-            'Lanzamiento público en Argentina',
-            'Agentes Mateo y Lucciano disponibles',
-            'Programa de referidos activo',
-            'Primeras 100 cuentas pagando',
+            'Equipo de ventas a plena operación',
+            'Contratar Customer Success Manager',
+            'Onboarding y retención estructurados',
+            'Primeras 200 cuentas pagando',
           ],
           status: 'Próximo',
         },
@@ -401,9 +402,9 @@ const content = {
           q: 'Q1 2027',
           color: '#ffb432',
           items: [
-            'Expansión a México',
-            'Agentes Erica y Elton disponibles',
-            'Canal de partners lanzado',
+            'Con flujo de caja positivo: contratar developers',
+            'Expansión a México y España',
+            'Canal de partners con agencias',
             'Integraciones con sistemas de reservas',
           ],
           status: 'Planificado',
@@ -412,7 +413,7 @@ const content = {
           q: 'Q2 2027',
           color: '#c084fc',
           items: [
-            'Expansión a España',
+            'Expansión a Europa (foco España + Portugal)',
             'Plan Enterprise con SLA',
             'API pública para desarrolladores',
             'Bundle Pepino Enterprise',
@@ -422,7 +423,7 @@ const content = {
       ],
       vision: {
         title: 'Visión 2028',
-        body: 'Pepino AI es el estándar de facto para agentes de IA en negocios hispanohablantes. Cada PyME que quiera automatizar su WhatsApp piensa en Pepino primero. 50.000 agentes activos, presencia en 8 países, plataforma abierta para que terceros construyan sus propios agentes sobre nuestra infraestructura.',
+        body: 'Pepino AI es el estándar de facto para agentes de IA en PyMEs de todo el mundo. Cada negocio que quiera automatizar WhatsApp piensa en Pepino primero. 50.000 agentes activos, presencia en 3 continentes, plataforma abierta para que terceros construyan sus propios agentes sobre nuestra infraestructura.',
       },
     },
     closing: {
@@ -523,7 +524,7 @@ const content = {
       label: '03',
       section: 'Market',
       title: 'The market opportunity.',
-      intro: "WhatsApp is not optional in Latin America — it is the communication infrastructure. Penetration exceeds 90% in Argentina, Mexico, Brazil, and Spain. For SMBs, it is the channel where customers arrive, appointments get confirmed, and sales close. Today that channel is completely unautomated.",
+      intro: "WhatsApp is not optional — it is communication infrastructure. In LATAM and Spain penetration exceeds 90%. In Europe, over 2 billion people use it daily. For SMBs everywhere, it is the channel where customers arrive, appointments get confirmed, and sales close. Today that channel is completely unautomated.",
       tam: {
         label: 'TAM',
         title: 'Total Addressable Market',
@@ -540,7 +541,7 @@ const content = {
         label: 'SOM',
         title: 'Serviceable Obtainable Market',
         value: '$84 M',
-        desc: '100K businesses in Argentina, Mexico, and Spain within the first 24 months. €70/month average.',
+        desc: '100K businesses across LATAM and Spain within the first 24 months, with expansion into Europe. €70/month average.',
       },
       verticals: {
         title: 'Priority verticals',
@@ -643,7 +644,7 @@ const content = {
           agents: '500',
           customers: '280',
           mrr: '€21K',
-          milestone: 'Product-market fit. First 100 paying customers. Saturate Argentina.',
+          milestone: 'Product-market fit demonstrated. First 100 paying customers. Sales team operational.',
         },
         {
           year: 'Year 2',
@@ -689,7 +690,7 @@ const content = {
       label: '06',
       section: 'Competition',
       title: 'The ecosystem.',
-      intro: 'The WhatsApp automation market is fragmented between generic solutions, complex platforms, and non-scalable freelancers. Pepino AI occupies the space no one has filled: specialized agents with personality, for SMBs, in Spanish, ready in minutes.',
+      intro: 'The WhatsApp automation market is fragmented between generic solutions, complex platforms, and non-scalable freelancers. Pepino AI occupies the space no one has filled: specialized agents with personality, for SMBs anywhere in the world, ready in minutes.',
       matrix: {
         headers: ['', 'Pepino AI', 'ManyChat', 'Chatbase', 'Tidio', 'Freelancer'],
         rows: [
@@ -730,9 +731,10 @@ const content = {
       hiring: {
         title: 'Next hires',
         roles: [
-          { role: 'Head of Growth / Sales', priority: 'Q3 2026' },
-          { role: 'Full-Stack Developer (Next.js / n8n)', priority: 'Q3 2026' },
+          { role: 'Sales Rep #1 (outbound)', priority: 'Q3 2026' },
+          { role: 'Sales Rep #2 (demos / close)', priority: 'Q3 2026' },
           { role: 'Customer Success Manager', priority: 'Q4 2026' },
+          { role: 'Full-Stack Developer (Next.js / n8n)', priority: 'Q1 2027' },
         ],
       },
       advisors: {
@@ -740,7 +742,7 @@ const content = {
         items: [
           'Pepino AI community (20K+ professionals in LATAM + Spain)',
           'Network of digital agency partners for distribution',
-          'Entrepreneur communities in Argentina, Mexico, and Spain',
+          'Entrepreneur communities across LATAM and Europe',
         ],
       },
     },
@@ -751,42 +753,42 @@ const content = {
       phases: [
         {
           phase: 'Phase 1',
-          period: 'Months 1–3',
+          period: 'Q3 2026',
           color: '#A0FF79',
-          title: 'Early Adopters + Founders',
+          title: 'Build the sales team',
           actions: [
-            '100 beta customers from our existing user base',
-            '50% discount in exchange for feedback',
-            'Documented success stories by vertical',
-            'Rapid product iteration with real users',
+            'Product is running — now the focus is selling',
+            'Hire first sales reps (outbound + demos)',
+            'Define pitch and priority verticals',
+            'First 50 paying customers via founder-led sales',
           ],
-          target: '50 active agents',
+          target: '50 paying customers',
         },
         {
           phase: 'Phase 2',
-          period: 'Months 4–6',
+          period: 'Q4 2026',
           color: '#64a0ff',
-          title: 'Content + Communities',
+          title: 'Customer Success team',
           actions: [
-            'YouTube / TikTok channel showing real cases',
-            'Entrepreneur WhatsApp groups (seeding)',
-            'Referral program (€30 per active referred customer)',
-            'First email campaign to our user base (20K+)',
+            'Sales team at full capacity: pipeline, demos, close',
+            'Hire first Customer Success Manager',
+            'Structured onboarding and retention metrics',
+            'Referral program active (€30 per referred customer)',
           ],
-          target: '200 active agents',
+          target: '200 paying customers',
         },
         {
           phase: 'Phase 3',
-          period: 'Months 7–12',
+          period: 'Q1–Q2 2027',
           color: '#ffb432',
-          title: 'Partnerships + Paid',
+          title: 'Strengthen product + expand',
           actions: [
-            'Partner channel: digital agencies selling Pepino to their clients',
-            'First Meta Ads campaigns segmented by vertical',
-            'Integration with existing booking systems (Fresha, Mindbody)',
-            'Expansion to Mexico and Spain with local team',
+            'With stable revenue: hire developers to strengthen the product',
+            'Expand to new markets: Mexico, Spain, and Europe',
+            'Partner channel: digital agencies reselling Pepino',
+            'Integrations with booking systems (Fresha, Mindbody)',
           ],
-          target: '500 active agents',
+          target: '500 paying customers',
         },
       ],
       acquisition: {
@@ -809,10 +811,10 @@ const content = {
           q: 'Q3 2026',
           color: '#A0FF79',
           items: [
-            'Private beta with 50 early adopter businesses',
-            'Paco agent (appointments) in production',
-            'Dashboard v1 with basic metrics',
-            'Stable Evolution API integration',
+            'Product in production and running',
+            'Hire first sales reps',
+            'First 50 paying accounts (direct sales)',
+            'Structured sales pipeline',
           ],
           status: 'In progress',
         },
@@ -820,10 +822,10 @@ const content = {
           q: 'Q4 2026',
           color: '#64a0ff',
           items: [
-            'Public launch in Argentina',
-            'Mateo and Lucciano agents available',
-            'Referral program active',
-            'First 100 paying accounts',
+            'Sales team at full capacity',
+            'Hire Customer Success Manager',
+            'Structured onboarding & retention',
+            'First 200 paying accounts',
           ],
           status: 'Upcoming',
         },
@@ -831,9 +833,9 @@ const content = {
           q: 'Q1 2027',
           color: '#ffb432',
           items: [
-            'Expansion to Mexico',
-            'Erica and Elton agents available',
-            'Partner channel launched',
+            'With positive cash flow: hire developers',
+            'Expansion to Mexico and Spain',
+            'Partner channel with agencies',
             'Integrations with booking systems',
           ],
           status: 'Planned',
@@ -842,7 +844,7 @@ const content = {
           q: 'Q2 2027',
           color: '#c084fc',
           items: [
-            'Expansion to Spain',
+            'Europe expansion (Spain + Portugal focus)',
             'Enterprise plan with SLA',
             'Public API for developers',
             'Pepino Enterprise bundle',
@@ -852,7 +854,7 @@ const content = {
       ],
       vision: {
         title: '2028 Vision',
-        body: 'Pepino AI is the de-facto standard for AI agents in Spanish-speaking businesses. Every SMB that wants to automate their WhatsApp thinks of Pepino first. 50,000 active agents, presence in 8 countries, and an open platform for third parties to build their own agents on our infrastructure.',
+        body: 'Pepino AI is the de-facto standard for AI agents for SMBs worldwide. Every business that wants to automate their WhatsApp thinks of Pepino first. 50,000 active agents, presence across 3 continents, and an open platform for third parties to build their own agents on our infrastructure.',
       },
     },
     closing: {
@@ -946,9 +948,8 @@ const AGENT_IDS = ['paco', 'mateo', 'lucciano', 'erica', 'elton']
 
 const s = {
   mono: { fontFamily: MONO },
-  lbl: { fontFamily: MONO, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#A0FF79', fontWeight: 500 },
-  num: { fontFamily: MONO, fontSize: 11, letterSpacing: '0.1em', color: '#7E8C7C' },
-  secHead: { display: 'flex', alignItems: 'baseline', gap: 14, marginBottom: 12 },
+  lbl: { fontFamily: MONO, fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#0B0E0C', background: '#A0FF79', fontWeight: 700, borderRadius: 20, padding: '5px 14px', display: 'inline-block' },
+  secHead: { marginBottom: 28 },
   h2: { fontFamily: DISP, fontWeight: 800, fontSize: 'clamp(32px, 5vw, 52px)', letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 24, color: '#F4F7F2' },
   lede: { fontFamily: DISP, fontSize: 18, lineHeight: 1.65, color: '#B6C4B2', maxWidth: 680, fontWeight: 300, marginBottom: 40 },
   body: { fontFamily: DISP, fontSize: 15, lineHeight: 1.7, color: '#B6C4B2', maxWidth: 680, fontWeight: 300 },
@@ -1312,7 +1313,7 @@ export default function BusinessPlan() {
 
       {/* ── 01 EXECUTIVE SUMMARY ── */}
       <section id="exec" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
-        <div style={s.secHead}><span style={s.lbl}>{c.exec.section}</span><span style={s.num}>{c.exec.label}</span></div>
+        <div style={s.secHead}><span style={s.lbl}>{c.exec.section}</span></div>
         <h2 style={s.h2}>{c.exec.title}</h2>
         {c.exec.body.map((p, i) => <p key={i} style={{ ...s.body, marginBottom: 20 }}>{p}</p>)}
         <div className="r-grid-4" style={{ marginTop: 48 }}>
@@ -1322,7 +1323,7 @@ export default function BusinessPlan() {
 
       {/* ── 02 PRODUCT ── */}
       <section id="product" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
-        <div style={s.secHead}><span style={s.lbl}>{c.product.section}</span><span style={s.num}>{c.product.label}</span></div>
+        <div style={s.secHead}><span style={s.lbl}>{c.product.section}</span></div>
         <h2 style={s.h2}>{c.product.title}</h2>
         <p style={s.lede}>{c.product.intro}</p>
 
@@ -1337,7 +1338,6 @@ export default function BusinessPlan() {
         <div style={{ borderTop: '1px solid #243026', paddingTop: 64 }}>
           <div style={s.secHead}>
             <span style={s.lbl}>{lang === 'es' ? 'Tu panel' : 'Your dashboard'}</span>
-            <span style={s.num}>02.B</span>
           </div>
           <h2 style={s.h2}>{lang === 'es' ? 'Lo que ves en tu panel.' : 'What you see in your dashboard.'}</h2>
           <p style={s.lede}>
@@ -1395,7 +1395,7 @@ export default function BusinessPlan() {
 
       {/* ── 03 MARKET ── */}
       <section id="market" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
-        <div style={s.secHead}><span style={s.lbl}>{c.market.section}</span><span style={s.num}>{c.market.label}</span></div>
+        <div style={s.secHead}><span style={s.lbl}>{c.market.section}</span></div>
         <h2 style={s.h2}>{c.market.title}</h2>
         <p style={s.lede}>{c.market.intro}</p>
         <div className="r-grid-3" style={{ marginBottom: 56 }}>
@@ -1429,7 +1429,7 @@ export default function BusinessPlan() {
 
       {/* ── 04 MODEL ── */}
       <section id="model" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
-        <div style={s.secHead}><span style={s.lbl}>{c.model.section}</span><span style={s.num}>{c.model.label}</span></div>
+        <div style={s.secHead}><span style={s.lbl}>{c.model.section}</span></div>
         <h2 style={s.h2}>{c.model.title}</h2>
         <p style={s.lede}>{c.model.intro}</p>
         <div className="r-grid-3" style={{ marginBottom: 48 }}>
@@ -1462,7 +1462,7 @@ export default function BusinessPlan() {
 
       {/* ── 05 FINANCES ── */}
       <section id="finances" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
-        <div style={s.secHead}><span style={s.lbl}>{c.finances.section}</span><span style={s.num}>{c.finances.label}</span></div>
+        <div style={s.secHead}><span style={s.lbl}>{c.finances.section}</span></div>
         <h2 style={s.h2}>{c.finances.title}</h2>
         <p style={s.lede}>{c.finances.intro}</p>
         <div className="r-proj" style={{ marginBottom: 48 }}>
@@ -1526,7 +1526,7 @@ export default function BusinessPlan() {
 
       {/* ── 06 COMPETITION ── */}
       <section id="competition" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
-        <div style={s.secHead}><span style={s.lbl}>{c.competition.section}</span><span style={s.num}>{c.competition.label}</span></div>
+        <div style={s.secHead}><span style={s.lbl}>{c.competition.section}</span></div>
         <h2 style={s.h2}>{c.competition.title}</h2>
         <p style={s.lede}>{c.competition.intro}</p>
         <div style={{ overflowX: 'auto', marginBottom: 56 }}>
@@ -1574,7 +1574,7 @@ export default function BusinessPlan() {
 
       {/* ── 07 TEAM ── */}
       <section id="team" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
-        <div style={s.secHead}><span style={s.lbl}>{c.team.section}</span><span style={s.num}>{c.team.label}</span></div>
+        <div style={s.secHead}><span style={s.lbl}>{c.team.section}</span></div>
         <h2 style={s.h2}>{c.team.title}</h2>
         <p style={s.lede}>{c.team.intro}</p>
         <div style={{ marginBottom: 48 }}>
@@ -1621,7 +1621,7 @@ export default function BusinessPlan() {
 
       {/* ── 08 GTM ── */}
       <section id="gtm" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
-        <div style={s.secHead}><span style={s.lbl}>{c.gtm.section}</span><span style={s.num}>{c.gtm.label}</span></div>
+        <div style={s.secHead}><span style={s.lbl}>{c.gtm.section}</span></div>
         <h2 style={s.h2}>{c.gtm.title}</h2>
         <div className="r-grid-3" style={{ marginBottom: 56 }}>
           {c.gtm.phases.map((phase, i) => (
@@ -1646,7 +1646,7 @@ export default function BusinessPlan() {
           ))}
         </div>
         <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, overflow: 'hidden' }}>
-          <div style={{ ...s.lbl, padding: '16px 20px', borderBottom: '1px solid #243026' }}>{c.gtm.acquisition.title}</div>
+          <div style={{ padding: '16px 20px', borderBottom: '1px solid #243026' }}><span style={s.lbl}>{c.gtm.acquisition.title}</span></div>
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 400 }}>
               <thead>
@@ -1672,7 +1672,7 @@ export default function BusinessPlan() {
 
       {/* ── 09 ROADMAP ── */}
       <section id="roadmap" className="r-page" style={{ borderBottom: 'none' }}>
-        <div style={s.secHead}><span style={s.lbl}>{c.roadmap.section}</span><span style={s.num}>{c.roadmap.label}</span></div>
+        <div style={s.secHead}><span style={s.lbl}>{c.roadmap.section}</span></div>
         <h2 style={s.h2}>{c.roadmap.title}</h2>
         <div className="r-grid-4" style={{ marginBottom: 48 }}>
           {c.roadmap.quarters.map((q, i) => (
