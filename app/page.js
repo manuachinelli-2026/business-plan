@@ -80,6 +80,24 @@ const content = {
           features: ['Chat directo para entender el negocio', 'Diseño personalizado', 'Entrega en menos de 24 horas', 'Lista para publicar con dominio propio'],
         },
       ],
+      onboarding: {
+        tag: 'Onboarding Agent',
+        title: 'Tu negocio en funcionamiento en 10 minutos.',
+        body: 'Construimos un agente de IA interno dedicado exclusivamente al onboarding de nuevos clientes. Cuando alguien contrata Pepino, este agente toma el control: hace las preguntas clave por WhatsApp, configura el perfil del negocio, conecta la cuenta y lanza al agente productivo — todo sin intervención humana, las 24 horas del día.',
+        steps: [
+          { step: '01', title: 'Bienvenida automática', desc: 'El cliente recibe un mensaje de WhatsApp con instrucciones claras. Sin emails, sin formularios.' },
+          { step: '02', title: 'Entrevista guiada', desc: 'El agente hace preguntas sobre el negocio, horarios, servicios y tono de voz. Conversacional, sin tecnicismos.' },
+          { step: '03', title: 'Configuración en tiempo real', desc: 'Con cada respuesta, el sistema construye el perfil del agente en Supabase y genera los prompts personalizados vía LLM.' },
+          { step: '04', title: 'Lanzamiento < 10 min', desc: 'El agente productivo queda activo y respondiendo en WhatsApp. El cliente recibe confirmación y acceso al dashboard.' },
+        ],
+        metrics: [
+          { value: '24/7', label: 'Onboarding disponible' },
+          { value: '<10 min', label: 'Tiempo de activación' },
+          { value: '0', label: 'Intervención humana' },
+          { value: '100%', label: 'Self-service' },
+        ],
+        tech: 'Stack: Evolution API + n8n (flujos condicionales) + Supabase (escritura en tiempo real) + LLM (generación dinámica de prompts) + WhatsApp como canal exclusivo de interacción.',
+      },
       techTitle: 'Stack técnico',
       techItems: [
         { name: 'Evolution API', desc: 'Conecta WhatsApp. Recibe y envía mensajes.' },
@@ -87,6 +105,7 @@ const content = {
         { name: 'Supabase', desc: 'Base de datos y autenticación.' },
         { name: 'Next.js', desc: 'Dashboard del cliente. Web app.' },
         { name: 'LLM Engine', desc: 'Modelos de lenguaje que dan inteligencia a los agentes.' },
+        { name: 'Onboarding Agent', desc: 'Agente interno que configura nuevos clientes automáticamente en < 10 min, 24/7.' },
       ],
     },
     market: {
@@ -511,6 +530,24 @@ const content = {
           features: ['Direct chat to understand the business', 'Custom design', 'Delivery in under 24 hours', 'Ready to publish with custom domain'],
         },
       ],
+      onboarding: {
+        tag: 'Onboarding Agent',
+        title: 'Your business running in 10 minutes.',
+        body: 'We built an internal AI agent dedicated exclusively to onboarding new customers. When someone subscribes to Pepino, this agent takes over: it asks the key questions over WhatsApp, configures the business profile, connects the account, and launches the production agent — all with zero human intervention, 24 hours a day.',
+        steps: [
+          { step: '01', title: 'Automated welcome', desc: 'The customer receives a WhatsApp message with clear instructions. No emails, no forms.' },
+          { step: '02', title: 'Guided interview', desc: 'The agent asks about the business, hours, services, and tone of voice. Conversational, no technical jargon.' },
+          { step: '03', title: 'Real-time configuration', desc: 'With each response, the system builds the agent profile in Supabase and generates custom prompts via LLM.' },
+          { step: '04', title: 'Launch < 10 min', desc: 'The production agent goes live and starts responding on WhatsApp. The customer receives confirmation and dashboard access.' },
+        ],
+        metrics: [
+          { value: '24/7', label: 'Onboarding availability' },
+          { value: '<10 min', label: 'Time to activate' },
+          { value: '0', label: 'Human intervention' },
+          { value: '100%', label: 'Self-service' },
+        ],
+        tech: 'Stack: Evolution API + n8n (conditional flows) + Supabase (real-time writes) + LLM (dynamic prompt generation) + WhatsApp as the exclusive interaction channel.',
+      },
       techTitle: 'Tech stack',
       techItems: [
         { name: 'Evolution API', desc: 'Connects WhatsApp. Receives and sends messages.' },
@@ -518,6 +555,7 @@ const content = {
         { name: 'Supabase', desc: 'Database and authentication.' },
         { name: 'Next.js', desc: 'Customer dashboard. Web app.' },
         { name: 'LLM Engine', desc: 'Language models that power agent intelligence.' },
+        { name: 'Onboarding Agent', desc: 'Internal agent that configures new customers automatically in < 10 min, 24/7.' },
       ],
     },
     market: {
@@ -1240,6 +1278,75 @@ function DashboardPreview({ lang }) {
   )
 }
 
+// Onboarding Agent section
+function OnboardingAgentSection({ ob }) {
+  return (
+    <div style={{
+      borderTop: '1px solid #243026', paddingTop: 64, marginTop: 64,
+    }}>
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
+        <span style={s.lbl}>{ob.tag}</span>
+        <span style={{
+          fontFamily: MONO, fontSize: 11, color: '#A0FF79', background: 'rgba(160,255,121,0.08)',
+          border: '1px solid rgba(160,255,121,0.2)', borderRadius: 20, padding: '3px 10px',
+        }}>interno · 24/7 · zero-touch</span>
+      </div>
+      <h2 style={{ ...s.h2, marginBottom: 16 }}>{ob.title}</h2>
+      <p style={{ ...s.lede, marginBottom: 48 }}>{ob.body}</p>
+
+      {/* 4-step flow */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0, marginBottom: 40, position: 'relative' }} className="r-ob-steps">
+        {/* Connector line */}
+        <div style={{
+          position: 'absolute', top: 28, left: '12.5%', right: '12.5%', height: 1,
+          background: 'linear-gradient(90deg, transparent, #A0FF79 20%, #A0FF79 80%, transparent)',
+          opacity: 0.2, pointerEvents: 'none',
+        }} />
+        {ob.steps.map((st, i) => (
+          <div key={i} style={{
+            padding: '0 20px 0 0',
+            borderRight: i < 3 ? '1px solid #243026' : 'none',
+            paddingRight: i < 3 ? 20 : 0,
+          }}>
+            <div style={{
+              width: 48, height: 48, borderRadius: '50%',
+              background: 'rgba(160,255,121,0.1)', border: '1.5px solid rgba(160,255,121,0.3)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontFamily: MONO, fontSize: 12, fontWeight: 700, color: '#A0FF79',
+              marginBottom: 16,
+            }}>{st.step}</div>
+            <div style={{ fontFamily: DISP, fontWeight: 700, fontSize: 15, color: '#F4F7F2', marginBottom: 8, lineHeight: 1.3 }}>{st.title}</div>
+            <div style={{ fontFamily: DISP, fontSize: 13, color: '#7E8C7C', lineHeight: 1.6 }}>{st.desc}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Metrics row */}
+      <div className="r-grid-4" style={{ marginBottom: 28 }}>
+        {ob.metrics.map((m, i) => (
+          <div key={i} style={{
+            background: 'rgba(160,255,121,0.04)', border: '1.5px solid rgba(160,255,121,0.2)',
+            borderRadius: 14, padding: '20px 20px', textAlign: 'center',
+          }}>
+            <div style={{ fontFamily: DISP, fontWeight: 900, fontSize: 32, color: '#A0FF79', letterSpacing: '-0.03em', lineHeight: 1 }}>{m.value}</div>
+            <div style={{ fontFamily: DISP, fontSize: 12, fontWeight: 500, color: '#5FA855', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{m.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Tech callout */}
+      <div style={{
+        background: '#161B12', border: '1px solid #243026', borderRadius: 12,
+        padding: '14px 20px', display: 'flex', alignItems: 'flex-start', gap: 12,
+      }}>
+        <span style={{ fontFamily: MONO, fontSize: 10, color: '#A0FF79', flexShrink: 0, marginTop: 2 }}>{'>'}_</span>
+        <span style={{ fontFamily: MONO, fontSize: 12, color: '#7E8C7C', lineHeight: 1.6 }}>{ob.tech}</span>
+      </div>
+    </div>
+  )
+}
+
 // ─── MAIN PAGE ────────────────────────────────────────────────────────────────
 
 export default function BusinessPlan() {
@@ -1378,6 +1485,9 @@ export default function BusinessPlan() {
             ))}
           </div>
         </div>
+
+        {/* Onboarding Agent */}
+        <OnboardingAgentSection ob={c.product.onboarding} />
 
         {/* Tech stack */}
         <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, padding: '32px 32px', marginTop: 48 }}>

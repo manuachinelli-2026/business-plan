@@ -67,6 +67,10 @@ a:hover { text-decoration: underline; }
   .r-grid-4 { grid-template-columns: 1fr 1fr; }
   .r-proj { grid-template-columns: 1fr 1fr; }
   .r-dash-grid { grid-template-columns: 1fr; }
+  .r-ob-steps { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+  .r-ob-steps > div { border-right: none !important; padding-right: 0 !important; border-bottom: 1px solid #243026; padding-bottom: 24px; }
+  .r-ob-steps > div:nth-child(even) { border-bottom: 1px solid #243026; }
+  .r-ob-steps > div:nth-last-child(-n+2) { border-bottom: none; }
 }
 
 @media (max-width: 640px) {
