@@ -292,7 +292,7 @@ const content = {
         {
           name: 'Manuel Achinelli',
           role: 'Fundador & CEO',
-          bio: 'Más de 15 años construyendo y escalando empresas de Software as a Service en LATAM. Formó parte del equipo de Sirena —plataforma de WhatsApp Business para empresas— durante su proceso de salida a bolsa (IPO). Trayectoria en producto, go-to-market y crecimiento en compañías cuyo canal principal es WhatsApp. Conoce el dolor del cliente desde adentro: lleva años viendo cómo las PyMEs pierden ventas porque no pueden responder a tiempo.',
+          bio: 'Más de 15 años construyendo y escalando empresas de Software as a Service en LATAM. Formó parte del equipo de Sirena —plataforma de WhatsApp Business para empresas— desde sus primeras etapas hasta su adquisición por Zenvia y el posterior proceso de IPO en Nasdaq. Participó activamente en los tres hitos: crecimiento, M&A y salida a bolsa. Trayectoria en producto, go-to-market y crecimiento en compañías cuyo canal principal es WhatsApp. Conoce el dolor del cliente desde adentro: lleva años viendo cómo las PyMEs pierden ventas porque no pueden responder a tiempo.',
           email: 'manu@pepino.ai',
           color: '#A0FF79',
         },
@@ -722,7 +722,7 @@ const content = {
         {
           name: 'Manuel Achinelli',
           role: 'Founder & CEO',
-          bio: 'Over 15 years building and scaling Software as a Service companies in LATAM. Was part of the Sirena team —a WhatsApp Business platform for enterprises— through its IPO process. Track record in product, go-to-market, and growth at companies where WhatsApp is the core channel. He knows the customer pain from the inside: years of watching SMBs lose sales because they can\'t respond fast enough.',
+          bio: 'Over 15 years building and scaling Software as a Service companies in LATAM. Was part of the Sirena team —a WhatsApp Business platform for enterprises— from its early stages through its acquisition by Zenvia and the subsequent Nasdaq IPO. Actively involved across all three milestones: growth, M&A, and public listing. Track record in product, go-to-market, and growth at companies where WhatsApp is the core channel. He knows the customer pain from the inside: years of watching SMBs lose sales because they can\'t respond fast enough.',
           email: 'manu@pepino.ai',
           color: '#A0FF79',
         },
@@ -1473,12 +1473,16 @@ export default function BusinessPlan() {
             }}>
               <div style={{ fontFamily: MONO, fontSize: 11, color: '#7E8C7C', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.12em' }}>{p.year}</div>
               <div style={{ fontFamily: DISP, fontWeight: 900, fontSize: 40, letterSpacing: '-0.04em', color: '#F4F7F2', lineHeight: 1, marginBottom: 4 }}>{p.arr}</div>
-              <div style={{ fontFamily: MONO, fontSize: 10, color: '#7E8C7C', marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.1em' }}>ARR</div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 20 }}>
+                <div style={{ fontFamily: MONO, fontSize: 10, color: '#7E8C7C', textTransform: 'uppercase', letterSpacing: '0.1em' }}>ARR</div>
+                <div style={{ fontFamily: DISP, fontSize: 10, color: '#4a5a48' }}>— {lang === 'es' ? 'Ingresos anuales recurrentes' : 'Annual Recurring Revenue'}</div>
+              </div>
               <div className="r-grid-2" style={{ marginBottom: 20, gap: 10 }}>
-                {[{ l: lang === 'es' ? 'Agentes' : 'Agents', v: p.agents }, { l: lang === 'es' ? 'Clientes' : 'Customers', v: p.customers }, { l: 'MRR', v: p.mrr }].map((m, j) => (
+                {[{ l: lang === 'es' ? 'Agentes' : 'Agents', v: p.agents }, { l: lang === 'es' ? 'Clientes' : 'Customers', v: p.customers }, { l: 'MRR', v: p.mrr, sub: lang === 'es' ? 'Ingresos mensuales recurrentes' : 'Monthly Recurring Revenue' }].map((m, j) => (
                   <div key={j} style={{ background: '#161B12', border: '1px solid #243026', borderRadius: 10, padding: '10px 12px' }}>
                     <div style={{ fontFamily: MONO, fontSize: 9, color: '#7E8C7C', marginBottom: 3, textTransform: 'uppercase' }}>{m.l}</div>
                     <div style={{ fontFamily: DISP, fontWeight: 700, fontSize: 16, color: '#F4F7F2' }}>{m.v}</div>
+                    {m.sub && <div style={{ fontFamily: DISP, fontSize: 9, color: '#4a5a48', marginTop: 2 }}>{m.sub}</div>}
                   </div>
                 ))}
               </div>
