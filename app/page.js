@@ -865,10 +865,84 @@ const content = {
   },
 }
 
-// ─── COMPONENTS ───────────────────────────────────────────────────────────────
+
+// ─── AGENT DATA (photos + WhatsApp conversations) ─────────────────────────────
 
 const DISP = "'Funnel Sans', sans-serif"
 const MONO = "'JetBrains Mono', monospace"
+
+const AGENT_META = {
+  paco:     { photo: 'https://randomuser.me/api/portraits/men/32.jpg' },
+  mateo:    { photo: 'https://randomuser.me/api/portraits/men/57.jpg' },
+  lucciano: { photo: 'https://randomuser.me/api/portraits/men/22.jpg' },
+  erica:    { photo: 'https://randomuser.me/api/portraits/women/44.jpg' },
+  elton:    { photo: 'https://randomuser.me/api/portraits/men/10.jpg' },
+}
+
+const WA_CONVOS = {
+  paco: {
+    name: 'Paco',
+    online: 'En línea',
+    msgs: [
+      { from: 'client', text: 'Hola! Quiero sacar turno para esta semana 🙏', time: '14:22' },
+      { from: 'agent',  text: '¡Hola! 👋 Claro que sí. Tengo disponibilidad el miércoles a las 10:00, 14:30 y 17:00. ¿Cuál te queda mejor?', time: '14:22' },
+      { from: 'client', text: '14:30 perfecto', time: '14:23' },
+      { from: 'agent',  text: '✅ Turno confirmado para el miércoles 11/06 a las 14:30. ¿Me decís tu nombre para agendarlo?', time: '14:23' },
+      { from: 'client', text: 'Laura García', time: '14:24' },
+      { from: 'agent',  text: 'Perfecto Laura 😊 Te mando un recordatorio el martes. ¡Hasta el miércoles! 🥒', time: '14:24' },
+    ],
+  },
+  mateo: {
+    name: 'Mateo',
+    online: 'En línea',
+    msgs: [
+      { from: 'agent',  text: 'Hola Carlos 👋 Hace 45 días que no te vemos. Esta semana tenemos un hueco especial para vos: 20% off en tu próxima visita. ¿Lo aprovechamos?', time: '10:01' },
+      { from: 'client', text: 'Qué buena onda! Cuándo tienen lugar?', time: '10:15' },
+      { from: 'agent',  text: 'Tenés el jueves a las 11:00 o el viernes a las 16:30. ¿Cuál preferís?', time: '10:15' },
+      { from: 'client', text: 'El viernes me viene perfecto', time: '10:16' },
+      { from: 'agent',  text: '✅ Agendado para el viernes 13/06 a las 16:30, con el 20% aplicado. ¡Te esperamos Carlos! 🥒', time: '10:16' },
+    ],
+  },
+  lucciano: {
+    name: 'Lucciano',
+    online: 'En línea',
+    msgs: [
+      { from: 'agent',  text: '¡Hola Ana! ☀️ ¿Cómo te fue hoy en tu visita?', time: '18:30' },
+      { from: 'client', text: 'Muy bien! Todo prolijo y puntual como siempre 😊', time: '18:42' },
+      { from: 'agent',  text: 'Qué bueno escuchar eso 🙌 ¿Te molestaría dejarlo en Google? Solo 2 minutos y nos ayuda un montón.', time: '18:42' },
+      { from: 'client', text: 'Dale claro, cómo lo hago?', time: '18:43' },
+      { from: 'agent',  text: 'Acá el link directo 👇 Solo tocás las estrellitas y escribís lo que sentiste. ¡Gracias de corazón! 🥒\n⭐ Ver en Google Maps →', time: '18:43' },
+    ],
+  },
+  erica: {
+    name: 'Erica',
+    online: 'En línea',
+    msgs: [
+      { from: 'client', text: 'Buenas! Una napolitana y una Coca por fav', time: '20:11' },
+      { from: 'agent',  text: '¡Hola! 🍕 Pizza napolitana: grande (€12.90) o mediana (€9.90). ¿Cuál preferís?', time: '20:11' },
+      { from: 'client', text: 'Grande', time: '20:12' },
+      { from: 'agent',  text: '🛒 Resumen: napolitana grande €12.90 + Coca-Cola €2.50 = Total €15.40\n\n¿Pagás con efectivo, tarjeta o Bizum?', time: '20:12' },
+      { from: 'client', text: 'Bizum', time: '20:13' },
+      { from: 'agent',  text: 'Perfecto ⬇️ Link de pago enviado. El pedido sale en ~30 min. ¡Gracias! 🥒', time: '20:13' },
+    ],
+  },
+  elton: {
+    name: 'Elton',
+    online: 'En línea',
+    msgs: [
+      { from: 'client', text: 'Hola, necesito una web para mi peluquería', time: '09:05' },
+      { from: 'agent',  text: '¡Hola! Perfecto, yo me encargo 💻 ¿Cómo se llama tu negocio?', time: '09:05' },
+      { from: 'client', text: 'Corte & Estilo', time: '09:06' },
+      { from: 'agent',  text: 'Genial 💇 ¿Tenés logo o usamos el nombre solo?', time: '09:06' },
+      { from: 'client', text: 'Tengo logo, te lo mando ahora 📎', time: '09:07' },
+      { from: 'agent',  text: '✅ Recibido. Tu web estará lista en menos de 24hs. Te aviso cuando esté publicada. ¡A trabajar! 🥒', time: '09:07' },
+    ],
+  },
+}
+
+const AGENT_IDS = ['paco', 'mateo', 'lucciano', 'erica', 'elton']
+
+// ─── STYLES ───────────────────────────────────────────────────────────────────
 
 const s = {
   mono: { fontFamily: MONO },
@@ -878,24 +952,19 @@ const s = {
   h2: { fontFamily: DISP, fontWeight: 800, fontSize: 'clamp(32px, 5vw, 52px)', letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 24, color: '#F4F7F2' },
   lede: { fontFamily: DISP, fontSize: 18, lineHeight: 1.65, color: '#B6C4B2', maxWidth: 680, fontWeight: 300, marginBottom: 40 },
   body: { fontFamily: DISP, fontSize: 15, lineHeight: 1.7, color: '#B6C4B2', maxWidth: 680, fontWeight: 300 },
-  page: { maxWidth: 1100, margin: '0 auto', padding: '100px 48px', borderBottom: '1px solid #243026' },
-  check: { color: '#A0FF79', fontSize: 14 },
-  cross: { color: '#FF6B5E', fontSize: 14 },
 }
 
+// ─── COMPONENTS ───────────────────────────────────────────────────────────────
+
 function Tag({ children, color = '#A0FF79' }) {
+  const r = parseInt(color.slice(1,3),16), g = parseInt(color.slice(3,5),16), b = parseInt(color.slice(5,7),16)
   return (
     <span style={{
-      fontFamily: MONO,
-      fontSize: 10,
-      fontWeight: 700,
-      letterSpacing: '0.06em',
-      textTransform: 'uppercase',
-      color,
-      background: `${color}18`,
-      border: `1px solid ${color}35`,
-      borderRadius: 6,
-      padding: '3px 9px',
+      fontFamily: MONO, fontSize: 10, fontWeight: 700, letterSpacing: '0.06em',
+      textTransform: 'uppercase', color,
+      background: `rgba(${r},${g},${b},0.1)`,
+      border: `1px solid rgba(${r},${g},${b},0.25)`,
+      borderRadius: 6, padding: '3px 9px',
     }}>{children}</span>
   )
 }
@@ -903,59 +972,16 @@ function Tag({ children, color = '#A0FF79' }) {
 function Stat({ value, label }) {
   return (
     <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 16, padding: '28px 24px' }}>
-      <div style={{ fontWeight: 800, fontSize: 36, letterSpacing: '-0.03em', color: '#A0FF79', lineHeight: 1 }}>{value}</div>
+      <div style={{ fontFamily: DISP, fontWeight: 800, fontSize: 36, letterSpacing: '-0.03em', color: '#A0FF79', lineHeight: 1 }}>{value}</div>
       <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.08em', color: '#7E8C7C', marginTop: 8, textTransform: 'uppercase' }}>{label}</div>
     </div>
   )
 }
 
-function AgentCard({ agent }) {
-  const [open, setOpen] = useState(false)
-  const alpha = (hex, a) => {
-    const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16)
-    return `rgba(${r},${g},${b},${a})`
-  }
+function ProgressBar({ pct, color = '#A0FF79' }) {
   return (
-    <div style={{
-      background: '#11150F',
-      border: `1px solid ${open ? alpha(agent.color, 0.4) : '#243026'}`,
-      borderRadius: 20,
-      overflow: 'hidden',
-      transition: 'border-color 0.2s',
-      cursor: 'pointer',
-    }} onClick={() => setOpen(!open)}>
-      <div style={{ padding: '22px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div style={{
-            width: 48, height: 48, borderRadius: '50%',
-            background: alpha(agent.color, 0.12),
-            border: `1.5px solid ${alpha(agent.color, 0.3)}`,
-            display: 'grid', placeItems: 'center',
-            fontWeight: 800, fontSize: 18, color: agent.color,
-            flexShrink: 0,
-          }}>{agent.name[0]}</div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 3 }}>
-              <span style={{ fontWeight: 800, fontSize: 17, color: '#F4F7F2', letterSpacing: '-0.01em' }}>{agent.name}</span>
-              <Tag color={agent.color}>{agent.role}</Tag>
-            </div>
-            <div style={{ fontFamily: MONO, fontSize: 11, color: '#7E8C7C' }}>{agent.price}</div>
-          </div>
-        </div>
-        <div style={{ color: '#7E8C7C', fontSize: 20, transition: 'transform 0.2s', transform: open ? 'rotate(180deg)' : 'none' }}>›</div>
-      </div>
-      {open && (
-        <div style={{ padding: '0 24px 24px', borderTop: `1px solid ${alpha(agent.color, 0.15)}` }}>
-          <p style={{ ...s.body, marginTop: 20, marginBottom: 16 }}>{agent.desc}</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 8 }}>
-            {agent.features.map((f, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13.5, color: '#B6C4B2' }}>
-                <span style={{ color: agent.color, fontSize: 12 }}>✓</span> {f}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+    <div style={{ background: '#161B12', borderRadius: 6, height: 8, overflow: 'hidden', marginTop: 6 }}>
+      <div style={{ width: `${pct}%`, height: '100%', background: color, borderRadius: 6 }} />
     </div>
   )
 }
@@ -965,27 +991,22 @@ function PricingCard({ plan }) {
     <div style={{
       background: plan.highlight ? 'rgba(160,255,121,0.04)' : '#11150F',
       border: plan.highlight ? '1.5px solid rgba(160,255,121,0.35)' : '1px solid #243026',
-      borderRadius: 20,
-      padding: '32px 28px',
-      position: 'relative',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 24,
+      borderRadius: 20, padding: '32px 28px', position: 'relative',
+      display: 'flex', flexDirection: 'column', gap: 24,
     }}>
       {plan.badge && (
         <div style={{
           position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)',
           background: '#A0FF79', color: '#0B0E0C',
           fontFamily: MONO, fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
-          padding: '4px 12px', borderRadius: 20,
-          whiteSpace: 'nowrap',
+          padding: '4px 12px', borderRadius: 20, whiteSpace: 'nowrap',
         }}>{plan.badge}</div>
       )}
       <div>
         <div style={{ fontFamily: MONO, fontSize: 11, color: '#7E8C7C', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>{plan.name}</div>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
-          <span style={{ fontWeight: 800, fontSize: 38, letterSpacing: '-0.03em', color: '#F4F7F2' }}>{plan.price}</span>
-          {plan.period && <span style={{ fontSize: 13, color: '#7E8C7C' }}>{plan.period}</span>}
+          <span style={{ fontFamily: DISP, fontWeight: 800, fontSize: 38, letterSpacing: '-0.03em', color: '#F4F7F2' }}>{plan.price}</span>
+          {plan.period && <span style={{ fontFamily: DISP, fontSize: 13, color: '#7E8C7C' }}>{plan.period}</span>}
         </div>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10, flex: 1 }}>
@@ -999,10 +1020,221 @@ function PricingCard({ plan }) {
   )
 }
 
-function ProgressBar({ pct, color = '#A0FF79' }) {
+// WhatsApp chat mockup
+function WAChat({ agentId, agentColor }) {
+  const meta = AGENT_META[agentId]
+  const convo = WA_CONVOS[agentId]
+  const alpha = (hex, a) => {
+    const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16)
+    return `rgba(${r},${g},${b},${a})`
+  }
   return (
-    <div style={{ background: '#161B12', borderRadius: 6, height: 8, overflow: 'hidden', marginTop: 6 }}>
-      <div style={{ width: `${pct}%`, height: '100%', background: color, borderRadius: 6, transition: 'width 0.6s ease' }} />
+    <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid #243026', boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}>
+      {/* Header */}
+      <div style={{ background: '#075E54', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 10 }}>
+        <img src={meta.photo} alt={convo.name} style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover', border: '2px solid rgba(255,255,255,0.2)' }} />
+        <div>
+          <div style={{ color: '#fff', fontFamily: DISP, fontWeight: 600, fontSize: 14, lineHeight: 1.2 }}>{convo.name}</div>
+          <div style={{ color: 'rgba(255,255,255,0.65)', fontFamily: DISP, fontSize: 11 }}>{convo.online}</div>
+        </div>
+        <div style={{ marginLeft: 'auto', display: 'flex', gap: 14 }}>
+          <svg width="18" height="18" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="9" r="7.5"/><path d="M9 6v3.5l2 1.5"/></svg>
+          <svg width="18" height="18" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="5" cy="9" r="1.2" fill="rgba(255,255,255,0.7)"/><circle cx="9" cy="9" r="1.2" fill="rgba(255,255,255,0.7)"/><circle cx="13" cy="9" r="1.2" fill="rgba(255,255,255,0.7)"/></svg>
+        </div>
+      </div>
+      {/* Chat area */}
+      <div style={{ background: '#ECE5DD', padding: '12px 10px', display: 'flex', flexDirection: 'column', gap: 5, minHeight: 220 }}>
+        {convo.msgs.map((msg, i) => (
+          <div key={i} style={{ display: 'flex', justifyContent: msg.from === 'client' ? 'flex-end' : 'flex-start' }}>
+            <div style={{
+              background: msg.from === 'client' ? '#DCF8C6' : '#fff',
+              borderRadius: msg.from === 'client' ? '10px 2px 10px 10px' : '2px 10px 10px 10px',
+              padding: '6px 10px 4px',
+              maxWidth: '82%',
+              boxShadow: '0 1px 2px rgba(0,0,0,0.15)',
+            }}>
+              <div style={{ fontFamily: DISP, fontSize: 12.5, color: '#111', lineHeight: 1.45, whiteSpace: 'pre-line' }}>{msg.text}</div>
+              <div style={{ fontFamily: DISP, fontSize: 10, color: '#9e9e9e', textAlign: 'right', marginTop: 2 }}>{msg.time} {msg.from === 'agent' && '✓✓'}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Input bar */}
+      <div style={{ background: '#F0F0F0', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div style={{ flex: 1, background: '#fff', borderRadius: 20, padding: '7px 14px', fontFamily: DISP, fontSize: 13, color: '#aaa' }}>Mensaje</div>
+        <div style={{ width: 34, height: 34, borderRadius: '50%', background: '#075E54', display: 'grid', placeItems: 'center' }}>
+          <svg width="14" height="14" fill="#fff" viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// Agent card — always expanded, 2-col layout
+function AgentCard({ agent, agentId }) {
+  const alpha = (hex, a) => {
+    const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16)
+    return `rgba(${r},${g},${b},${a})`
+  }
+  const meta = AGENT_META[agentId]
+  return (
+    <div style={{
+      background: '#11150F',
+      border: `1px solid ${alpha(agent.color, 0.25)}`,
+      borderRadius: 24,
+      overflow: 'hidden',
+      boxShadow: `0 4px 24px ${alpha(agent.color, 0.06)}`,
+    }}>
+      <div className="r-agent" style={{ padding: '32px 32px' }}>
+        {/* Left: info */}
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
+            <img
+              src={meta.photo}
+              alt={agent.name}
+              style={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover', border: `2.5px solid ${alpha(agent.color, 0.5)}`, flexShrink: 0 }}
+            />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 4 }}>
+                <span style={{ fontFamily: DISP, fontWeight: 800, fontSize: 20, color: '#F4F7F2', letterSpacing: '-0.01em' }}>{agent.name}</span>
+                <Tag color={agent.color}>{agent.role}</Tag>
+              </div>
+              <div style={{ fontFamily: MONO, fontSize: 12, color: agent.color, fontWeight: 700 }}>{agent.price}</div>
+            </div>
+          </div>
+          <p style={{ fontFamily: DISP, fontSize: 14.5, color: '#B6C4B2', lineHeight: 1.65, marginBottom: 20 }}>{agent.desc}</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
+            {agent.features.map((f, i) => (
+              <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 13.5, color: '#B6C4B2', fontFamily: DISP }}>
+                <span style={{ color: agent.color, flexShrink: 0, marginTop: 1, fontWeight: 700 }}>✓</span>{f}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Right: WhatsApp mockup */}
+        <WAChat agentId={agentId} agentColor={agent.color} />
+      </div>
+    </div>
+  )
+}
+
+// Dashboard preview mockup
+function DashboardPreview({ lang }) {
+  const isEs = lang === 'es'
+  const metrics = [
+    { value: '42', label: isEs ? 'Conversaciones' : 'Conversations', color: '#A0FF79', icon: '💬' },
+    { value: '18', label: isEs ? 'Reservas' : 'Reservations', color: '#A78BFA', icon: '📅' },
+    { value: '8', label: isEs ? 'Clientes nuevos' : 'New clients', color: '#60A5FA', icon: '👤' },
+    { value: '42%', label: isEs ? 'Conversión' : 'Conversion', color: '#FB923C', icon: '📈' },
+  ]
+  const appointments = [
+    { time: '10:00', name: 'Laura García', service: isEs ? 'Corte y color' : 'Cut & colour', color: '#A0FF79' },
+    { time: '11:30', name: 'Sofía Romero', service: isEs ? 'Manicura' : 'Manicure', color: '#A78BFA' },
+    { time: '14:30', name: 'Carlos Ruiz', service: isEs ? 'Barba y corte' : 'Beard & cut', color: '#60A5FA' },
+    { time: '16:00', name: 'Ana López', service: isEs ? 'Tinte completo' : 'Full colour', color: '#FB923C' },
+    { time: '17:30', name: 'Marta Díaz', service: isEs ? 'Peinado' : 'Styling', color: '#A0FF79' },
+  ]
+  const alpha = (hex, a) => {
+    const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16)
+    return `rgba(${r},${g},${b},${a})`
+  }
+  return (
+    <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, overflow: 'hidden' }}>
+      {/* Browser bar */}
+      <div style={{ background: '#161B12', borderBottom: '1px solid #243026', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ display: 'flex', gap: 6 }}>
+          {['#FF5F57','#FEBC2E','#28C840'].map((c,i) => <div key={i} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
+        </div>
+        <div style={{ flex: 1, background: '#0B0E0C', borderRadius: 6, padding: '4px 12px', display: 'flex', alignItems: 'center', gap: 6 }}>
+          <svg width="10" height="10" fill="none" stroke="#5FA855" strokeWidth="1.5" strokeLinecap="round"><path d="M2 5a3 3 0 016 0v1.5H2V5z"/><rect x="1" y="6" width="8" height="4" rx="1" fill="#5FA855" stroke="none"/></svg>
+          <span style={{ fontFamily: MONO, fontSize: 10, color: '#5FA855' }}>app.pepino.ai</span>
+        </div>
+      </div>
+      {/* Dashboard content */}
+      <div style={{ padding: '20px 20px' }}>
+        {/* Header */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <CucumberLogo size={22} />
+            <span style={{ fontFamily: DISP, fontWeight: 700, fontSize: 14, color: '#F4F7F2' }}>
+              {isEs ? 'Mi panel' : 'My dashboard'}
+            </span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#A0FF79', boxShadow: '0 0 6px #A0FF79' }} />
+            <span style={{ fontFamily: MONO, fontSize: 10, color: '#A0FF79' }}>
+              Paco — {isEs ? 'Activo' : 'Active'}
+            </span>
+          </div>
+        </div>
+        {/* Metrics */}
+        <div className="r-grid-4" style={{ marginBottom: 16 }}>
+          {metrics.map((m, i) => (
+            <div key={i} style={{ background: '#0B0E0C', border: `1px solid ${alpha(m.color, 0.2)}`, borderRadius: 12, padding: '12px 14px' }}>
+              <div style={{ fontFamily: DISP, fontWeight: 800, fontSize: 24, color: m.color, lineHeight: 1 }}>{m.value}</div>
+              <div style={{ fontFamily: DISP, fontSize: 11, color: '#7E8C7C', marginTop: 4 }}>{m.label}</div>
+            </div>
+          ))}
+        </div>
+        {/* Calendar + Conversations */}
+        <div className="r-dash-grid">
+          {/* Agenda */}
+          <div style={{ background: '#0B0E0C', border: '1px solid #243026', borderRadius: 14, padding: '14px 14px' }}>
+            <div style={{ fontFamily: MONO, fontSize: 10, color: '#A0FF79', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>
+              📅 {isEs ? 'Hoy · miércoles 11 jun' : 'Today · Wed Jun 11'}
+            </div>
+            {appointments.map((a, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '7px 0', borderBottom: i < appointments.length - 1 ? '1px solid #1c231d' : 'none' }}>
+                <div style={{ fontFamily: MONO, fontSize: 10, color: '#7E8C7C', width: 34, flexShrink: 0 }}>{a.time}</div>
+                <div style={{ width: 3, height: 28, borderRadius: 2, background: a.color, flexShrink: 0 }} />
+                <div>
+                  <div style={{ fontFamily: DISP, fontSize: 12, fontWeight: 600, color: '#F4F7F2', lineHeight: 1.2 }}>{a.name}</div>
+                  <div style={{ fontFamily: DISP, fontSize: 11, color: '#7E8C7C' }}>{a.service}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Sync callout */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <div style={{ background: '#0B0E0C', border: '1px solid #243026', borderRadius: 14, padding: '14px 14px', flex: 1 }}>
+              <div style={{ fontFamily: MONO, fontSize: 10, color: '#A0FF79', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 10 }}>
+                {isEs ? 'Conversaciones recientes' : 'Recent conversations'}
+              </div>
+              {[
+                { name: 'Laura García', msg: isEs ? 'Turno confirmado ✅' : 'Appointment confirmed ✅', time: '14:24' },
+                { name: 'Carlos Ruiz', msg: isEs ? 'Reactivado — 20% off 🎯' : 'Reactivated — 20% off 🎯', time: '10:16' },
+                { name: 'Marta Díaz', msg: isEs ? 'Reseña Google enviada ⭐' : 'Google review sent ⭐', time: '18:43' },
+              ].map((conv, i) => (
+                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '7px 0', borderBottom: i < 2 ? '1px solid #1c231d' : 'none' }}>
+                  <div>
+                    <div style={{ fontFamily: DISP, fontSize: 12, fontWeight: 600, color: '#F4F7F2' }}>{conv.name}</div>
+                    <div style={{ fontFamily: DISP, fontSize: 11, color: '#7E8C7C' }}>{conv.msg}</div>
+                  </div>
+                  <div style={{ fontFamily: MONO, fontSize: 10, color: '#4a5a48' }}>{conv.time}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Calendar integrations bar */}
+      <div style={{ borderTop: '1px solid #243026', padding: '12px 20px', display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+        <span style={{ fontFamily: MONO, fontSize: 10, color: '#7E8C7C', letterSpacing: '0.08em', textTransform: 'uppercase', flexShrink: 0 }}>
+          {isEs ? 'Sincroniza con:' : 'Syncs with:'}
+        </span>
+        {['Google Calendar', 'Apple Calendar', 'Outlook'].map((cal, i) => (
+          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 5, background: '#161B12', border: '1px solid #243026', borderRadius: 8, padding: '4px 10px' }}>
+            <span style={{ fontSize: 11 }}>📆</span>
+            <span style={{ fontFamily: DISP, fontSize: 11, color: '#B6C4B2', fontWeight: 500 }}>{cal}</span>
+          </div>
+        ))}
+        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 5 }}>
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#A0FF79', boxShadow: '0 0 4px #A0FF79' }} />
+          <span style={{ fontFamily: MONO, fontSize: 10, color: '#5FA855' }}>
+            {isEs ? 'Sincronización en tiempo real' : 'Real-time sync'}
+          </span>
+        </div>
+      </div>
     </div>
   )
 }
@@ -1022,98 +1254,139 @@ export default function BusinessPlan() {
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         display: 'flex', alignItems: 'center', gap: 12, padding: '14px 28px',
-        background: 'rgba(11,14,12,0.85)', backdropFilter: 'blur(14px)',
+        background: 'rgba(11,14,12,0.88)', backdropFilter: 'blur(14px)',
         borderBottom: '1px solid #243026',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginRight: 8 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginRight: 8, flexShrink: 0 }}>
           <CucumberLogo size={26} />
-          <span style={{ fontWeight: 800, fontSize: 16, letterSpacing: '-0.02em' }}>
+          <span style={{ fontFamily: DISP, fontWeight: 800, fontSize: 16, letterSpacing: '-0.02em' }}>
             Pepino<span style={{ fontFamily: MONO, fontSize: '0.62em', color: '#A0FF79', verticalAlign: 'super', marginLeft: 2 }}>AI</span>
           </span>
         </div>
-        <div style={{ display: 'flex', gap: 6, marginLeft: 8, overflow: 'auto', flex: 1 }}>
+        <div className="nav-links" style={{ flex: 1 }}>
           {c.nav.links.map((link, i) => (
             <a key={i} href={`#${navIds[i]}`} style={{
               fontFamily: MONO, fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase',
               color: '#7E8C7C', textDecoration: 'none', padding: '5px 10px', borderRadius: 8, whiteSpace: 'nowrap',
               transition: 'color 0.15s',
             }}
-            onMouseEnter={e => e.target.style.color = '#A0FF79'}
-            onMouseLeave={e => e.target.style.color = '#7E8C7C'}
+            onMouseEnter={e => e.currentTarget.style.color = '#A0FF79'}
+            onMouseLeave={e => e.currentTarget.style.color = '#7E8C7C'}
             >{link}</a>
           ))}
         </div>
         <button onClick={() => setLang(lang === 'es' ? 'en' : 'es')} style={{
           fontFamily: MONO, fontSize: 10, fontWeight: 700, letterSpacing: '0.12em',
           color: '#A0FF79', background: 'rgba(160,255,121,0.08)', border: '1px solid rgba(160,255,121,0.25)',
-          borderRadius: 8, padding: '6px 12px', cursor: 'pointer', textTransform: 'uppercase',
-          flexShrink: 0,
+          borderRadius: 8, padding: '6px 12px', cursor: 'pointer', textTransform: 'uppercase', flexShrink: 0,
         }}>{c.nav.langLabel}</button>
       </nav>
 
       {/* ── COVER ── */}
-      <section style={{
-        minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center',
-        alignItems: 'flex-start', maxWidth: 1100, margin: '0 auto', padding: '120px 48px 80px',
-        position: 'relative', overflow: 'hidden',
-      }}>
+      <div className="r-cover" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
         <div style={{
           position: 'absolute', right: -150, top: '50%', transform: 'translateY(-50%)',
           width: 700, height: 700,
           background: 'radial-gradient(circle, rgba(160,255,121,0.12), transparent 60%)',
           pointerEvents: 'none',
         }} />
-        <div style={{ marginBottom: 32 }}>
-          <CucumberLogo size={80} />
-        </div>
-        <div style={{ ...s.mono, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#7E8C7C', marginBottom: 20 }}>
+        <div style={{ marginBottom: 32 }}><CucumberLogo size={80} /></div>
+        <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#7E8C7C', marginBottom: 20 }}>
           {c.cover.label}
         </div>
         <h1 style={{
-          fontWeight: 900, fontSize: 'clamp(52px, 9vw, 108px)', letterSpacing: '-0.045em',
+          fontFamily: DISP, fontWeight: 900, fontSize: 'clamp(52px, 9vw, 108px)', letterSpacing: '-0.045em',
           lineHeight: 0.92, color: '#F4F7F2', marginBottom: 32, whiteSpace: 'pre-line',
         }}>{c.cover.title}</h1>
-        <p style={{ fontSize: 19, color: '#B6C4B2', fontWeight: 300, lineHeight: 1.6, maxWidth: 560, marginBottom: 40, whiteSpace: 'pre-line' }}>
+        <p style={{ fontFamily: DISP, fontSize: 19, color: '#B6C4B2', fontWeight: 300, lineHeight: 1.6, maxWidth: 560, marginBottom: 40, whiteSpace: 'pre-line' }}>
           {c.cover.sub}
         </p>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-          {[c.cover.pill1, c.cover.pill2, c.cover.pill3].map((p, i) => (
-            <Tag key={i}>{p}</Tag>
-          ))}
+          {[c.cover.pill1, c.cover.pill2, c.cover.pill3].map((p, i) => <Tag key={i}>{p}</Tag>)}
         </div>
-        <div style={{ position: 'absolute', bottom: 40, left: 48, display: 'flex', alignItems: 'center', gap: 10 }}>
-          <span style={{ ...s.mono, fontSize: 10, color: '#4a5a48', letterSpacing: '0.12em', textTransform: 'uppercase' }}>{c.cover.scrollHint}</span>
+        <div style={{ position: 'absolute', bottom: 40, display: 'flex', alignItems: 'center', gap: 10 }}>
+          <span style={{ fontFamily: MONO, fontSize: 10, color: '#4a5a48', letterSpacing: '0.12em', textTransform: 'uppercase' }}>{c.cover.scrollHint}</span>
           <span style={{ color: '#4a5a48', fontSize: 16 }}>↓</span>
         </div>
-      </section>
+      </div>
 
       {/* ── 01 EXECUTIVE SUMMARY ── */}
-      <section id="exec" style={{ ...s.page }}>
+      <section id="exec" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
         <div style={s.secHead}><span style={s.lbl}>{c.exec.section}</span><span style={s.num}>{c.exec.label}</span></div>
         <h2 style={s.h2}>{c.exec.title}</h2>
-        {c.exec.body.map((p, i) => (
-          <p key={i} style={{ ...s.body, marginBottom: 20 }}>{p}</p>
-        ))}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16, marginTop: 48 }}>
+        {c.exec.body.map((p, i) => <p key={i} style={{ ...s.body, marginBottom: 20 }}>{p}</p>)}
+        <div className="r-grid-4" style={{ marginTop: 48 }}>
           {c.exec.stats.map((st, i) => <Stat key={i} {...st} />)}
         </div>
       </section>
 
       {/* ── 02 PRODUCT ── */}
-      <section id="product" style={{ ...s.page }}>
+      <section id="product" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
         <div style={s.secHead}><span style={s.lbl}>{c.product.section}</span><span style={s.num}>{c.product.label}</span></div>
         <h2 style={s.h2}>{c.product.title}</h2>
         <p style={s.lede}>{c.product.intro}</p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 56 }}>
-          {c.product.agents.map((agent, i) => <AgentCard key={i} agent={agent} />)}
+
+        {/* Agent cards */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 64 }}>
+          {c.product.agents.map((agent, i) => (
+            <AgentCard key={i} agent={agent} agentId={AGENT_IDS[i]} />
+          ))}
         </div>
-        <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, padding: '32px 32px' }}>
+
+        {/* Dashboard section */}
+        <div style={{ borderTop: '1px solid #243026', paddingTop: 64 }}>
+          <div style={s.secHead}>
+            <span style={s.lbl}>{lang === 'es' ? 'Tu panel' : 'Your dashboard'}</span>
+            <span style={s.num}>02.B</span>
+          </div>
+          <h2 style={s.h2}>{lang === 'es' ? 'Lo que ves en tu panel.' : 'What you see in your dashboard.'}</h2>
+          <p style={s.lede}>
+            {lang === 'es'
+              ? 'No solo automatizás la atención — también la monitoreás. Tu panel muestra en tiempo real cuántas conversaciones manejó el agente, los turnos del día, los clientes nuevos y todo lo que pasó mientras vos trabajabas. La agenda se sincroniza automáticamente con Google Calendar, Apple Calendar y Outlook — lo que reserva el agente aparece directamente en tu celular.'
+              : "You don't just automate attention — you monitor it. Your dashboard shows in real time how many conversations your agent handled, the day's appointments, new clients, and everything that happened while you were working. The calendar syncs automatically with Google Calendar, Apple Calendar, and Outlook — what the agent books appears directly on your phone."}
+          </p>
+          <DashboardPreview lang={lang} />
+          <div className="r-grid-3" style={{ marginTop: 24 }}>
+            {[
+              {
+                icon: '📅',
+                title: lang === 'es' ? 'Agenda integrada' : 'Integrated calendar',
+                body: lang === 'es'
+                  ? 'Cada turno que reserva el agente aparece en tu Google Calendar o Apple Calendar en segundos. Sin copiar y pegar, sin dobles agendas.'
+                  : 'Every appointment the agent books appears in your Google or Apple Calendar in seconds. No copy-pasting, no double calendars.',
+              },
+              {
+                icon: '🔔',
+                title: lang === 'es' ? 'Recordatorios automáticos' : 'Automatic reminders',
+                body: lang === 'es'
+                  ? 'El agente manda recordatorios al cliente 24hs antes de cada turno. Menos no-shows, más puntualidad, sin que tengas que hacer nada.'
+                  : 'The agent sends reminders to clients 24h before each appointment. Fewer no-shows, more punctuality, with zero effort from you.',
+              },
+              {
+                icon: '📊',
+                title: lang === 'es' ? 'Métricas en tiempo real' : 'Real-time metrics',
+                body: lang === 'es'
+                  ? 'Conversaciones, reservas, clientes nuevos, tasa de conversión. Todo en pantalla, actualizado al minuto. Sabés exactamente qué está haciendo tu agente.'
+                  : 'Conversations, bookings, new clients, conversion rate. All on screen, updated by the minute. You know exactly what your agent is doing.',
+              },
+            ].map((item, i) => (
+              <div key={i} style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 16, padding: '24px 22px' }}>
+                <div style={{ fontSize: 28, marginBottom: 12 }}>{item.icon}</div>
+                <div style={{ fontFamily: DISP, fontWeight: 700, fontSize: 16, color: '#F4F7F2', marginBottom: 8 }}>{item.title}</div>
+                <p style={{ fontFamily: DISP, fontSize: 13.5, color: '#7E8C7C', lineHeight: 1.6, margin: 0 }}>{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Tech stack */}
+        <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, padding: '32px 32px', marginTop: 48 }}>
           <div style={{ ...s.lbl, marginBottom: 24 }}>{c.product.techTitle}</div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16 }}>
+          <div className="r-grid-3" style={{ gap: 20 }}>
             {c.product.techItems.map((t, i) => (
               <div key={i}>
-                <div style={{ ...s.mono, fontWeight: 700, fontSize: 13, color: '#A0FF79', marginBottom: 4 }}>{t.name}</div>
-                <div style={{ fontSize: 13, color: '#7E8C7C', lineHeight: 1.5 }}>{t.desc}</div>
+                <div style={{ fontFamily: MONO, fontWeight: 700, fontSize: 13, color: '#A0FF79', marginBottom: 4 }}>{t.name}</div>
+                <div style={{ fontFamily: DISP, fontSize: 13, color: '#7E8C7C', lineHeight: 1.5 }}>{t.desc}</div>
               </div>
             ))}
           </div>
@@ -1121,139 +1394,124 @@ export default function BusinessPlan() {
       </section>
 
       {/* ── 03 MARKET ── */}
-      <section id="market" style={{ ...s.page }}>
+      <section id="market" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
         <div style={s.secHead}><span style={s.lbl}>{c.market.section}</span><span style={s.num}>{c.market.label}</span></div>
         <h2 style={s.h2}>{c.market.title}</h2>
         <p style={s.lede}>{c.market.intro}</p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 20, marginBottom: 56 }}>
+        <div className="r-grid-3" style={{ marginBottom: 56 }}>
           {[c.market.tam, c.market.sam, c.market.som].map((m, i) => (
             <div key={i} style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, padding: '28px 24px' }}>
               <Tag>{m.label}</Tag>
-              <div style={{ fontWeight: 800, fontSize: 42, letterSpacing: '-0.04em', color: '#F4F7F2', margin: '12px 0 4px' }}>{m.value}</div>
-              <div style={{ fontWeight: 600, fontSize: 14, color: '#B6C4B2', marginBottom: 10 }}>{m.title}</div>
-              <p style={{ fontSize: 13.5, color: '#7E8C7C', lineHeight: 1.6, margin: 0 }}>{m.desc}</p>
+              <div style={{ fontFamily: DISP, fontWeight: 800, fontSize: 42, letterSpacing: '-0.04em', color: '#F4F7F2', margin: '12px 0 4px' }}>{m.value}</div>
+              <div style={{ fontFamily: DISP, fontWeight: 600, fontSize: 14, color: '#B6C4B2', marginBottom: 10 }}>{m.title}</div>
+              <p style={{ fontFamily: DISP, fontSize: 13.5, color: '#7E8C7C', lineHeight: 1.6, margin: 0 }}>{m.desc}</p>
             </div>
           ))}
         </div>
-
-        <h3 style={{ fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', marginBottom: 24, color: '#F4F7F2' }}>{c.market.verticals.title}</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 14, marginBottom: 56 }}>
+        <h3 style={{ fontFamily: DISP, fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', marginBottom: 24, color: '#F4F7F2' }}>{c.market.verticals.title}</h3>
+        <div className="r-grid-2" style={{ marginBottom: 56 }}>
           {c.market.verticals.items.map((v, i) => (
             <div key={i} style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 16, padding: '20px 22px', display: 'flex', gap: 16, alignItems: 'flex-start' }}>
               <span style={{ fontSize: 28 }}>{v.icon}</span>
               <div>
-                <div style={{ fontWeight: 600, fontSize: 15, color: '#F4F7F2', marginBottom: 3 }}>{v.name}</div>
-                <div style={{ ...s.mono, fontSize: 10, color: '#A0FF79', marginBottom: 6 }}>{v.size}</div>
-                <div style={{ fontSize: 13, color: '#7E8C7C' }}>{v.pain}</div>
+                <div style={{ fontFamily: DISP, fontWeight: 600, fontSize: 15, color: '#F4F7F2', marginBottom: 3 }}>{v.name}</div>
+                <div style={{ fontFamily: MONO, fontSize: 10, color: '#A0FF79', marginBottom: 6 }}>{v.size}</div>
+                <div style={{ fontFamily: DISP, fontSize: 13, color: '#7E8C7C' }}>{v.pain}</div>
               </div>
             </div>
           ))}
         </div>
-
-        <h3 style={{ fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', marginBottom: 24, color: '#F4F7F2' }}>{c.market.whatsapp.title}</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16 }}>
+        <h3 style={{ fontFamily: DISP, fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', marginBottom: 24, color: '#F4F7F2' }}>{c.market.whatsapp.title}</h3>
+        <div className="r-grid-4">
           {c.market.whatsapp.stats.map((st, i) => <Stat key={i} {...st} />)}
         </div>
       </section>
 
       {/* ── 04 MODEL ── */}
-      <section id="model" style={{ ...s.page }}>
+      <section id="model" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
         <div style={s.secHead}><span style={s.lbl}>{c.model.section}</span><span style={s.num}>{c.model.label}</span></div>
         <h2 style={s.h2}>{c.model.title}</h2>
         <p style={s.lede}>{c.model.intro}</p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 20, marginBottom: 56 }}>
+        <div className="r-grid-3" style={{ marginBottom: 48 }}>
           {c.model.plans.map((plan, i) => <PricingCard key={i} plan={plan} />)}
         </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 0 }}>
+        <div className="r-grid-2">
           <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, padding: '28px 24px' }}>
             <div style={{ ...s.lbl, marginBottom: 20 }}>{c.model.upsells.title}</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              {c.model.upsells.items.map((item, i) => (
-                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: i < c.model.upsells.items.length - 1 ? '1px solid #1c231d' : 'none' }}>
-                  <div>
-                    <div style={{ fontSize: 14, fontWeight: 500, color: '#F4F7F2', marginBottom: 2 }}>{item.name}</div>
-                    <div style={{ fontSize: 11, color: '#7E8C7C' }}>{item.type}</div>
-                  </div>
-                  <div style={{ ...s.mono, fontSize: 13, fontWeight: 700, color: '#A0FF79' }}>{item.value}</div>
+            {c.model.upsells.items.map((item, i) => (
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: i < c.model.upsells.items.length - 1 ? '1px solid #1c231d' : 'none' }}>
+                <div>
+                  <div style={{ fontFamily: DISP, fontSize: 14, fontWeight: 500, color: '#F4F7F2', marginBottom: 2 }}>{item.name}</div>
+                  <div style={{ fontFamily: DISP, fontSize: 11, color: '#7E8C7C' }}>{item.type}</div>
                 </div>
-              ))}
-            </div>
+                <div style={{ fontFamily: MONO, fontSize: 13, fontWeight: 700, color: '#A0FF79' }}>{item.value}</div>
+              </div>
+            ))}
           </div>
           <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, padding: '28px 24px' }}>
             <div style={{ ...s.lbl, marginBottom: 20 }}>{c.model.unit.title}</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {c.model.unit.items.map((item, i) => (
-                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: i < c.model.unit.items.length - 1 ? '1px solid #1c231d' : 'none' }}>
-                  <span style={{ fontSize: 13.5, color: '#B6C4B2' }}>{item.metric}</span>
-                  <span style={{ ...s.mono, fontSize: 14, fontWeight: 700, color: '#A0FF79' }}>{item.value}</span>
-                </div>
-              ))}
-            </div>
+            {c.model.unit.items.map((item, i) => (
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: i < c.model.unit.items.length - 1 ? '1px solid #1c231d' : 'none' }}>
+                <span style={{ fontFamily: DISP, fontSize: 13.5, color: '#B6C4B2' }}>{item.metric}</span>
+                <span style={{ fontFamily: MONO, fontSize: 14, fontWeight: 700, color: '#A0FF79' }}>{item.value}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── 05 FINANCES ── */}
-      <section id="finances" style={{ ...s.page }}>
+      <section id="finances" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
         <div style={s.secHead}><span style={s.lbl}>{c.finances.section}</span><span style={s.num}>{c.finances.label}</span></div>
         <h2 style={s.h2}>{c.finances.title}</h2>
         <p style={s.lede}>{c.finances.intro}</p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 20, marginBottom: 56 }}>
+        <div className="r-proj" style={{ marginBottom: 48 }}>
           {c.finances.projections.map((p, i) => (
             <div key={i} style={{
               background: '#11150F', border: '1px solid #243026', borderRadius: 20, padding: '28px 24px',
-              borderTop: `3px solid ${['#A0FF79', '#64a0ff', '#ffb432'][i]}`,
+              borderTop: `3px solid ${['#A0FF79','#64a0ff','#ffb432'][i]}`,
             }}>
-              <div style={{ ...s.mono, fontSize: 11, color: '#7E8C7C', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.12em' }}>{p.year}</div>
-              <div style={{ fontWeight: 900, fontSize: 40, letterSpacing: '-0.04em', color: '#F4F7F2', lineHeight: 1, marginBottom: 4 }}>{p.arr}</div>
-              <div style={{ ...s.mono, fontSize: 10, color: '#7E8C7C', marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.1em' }}>ARR</div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 20 }}>
-                {[
-                  { l: 'Agentes', v: p.agents },
-                  { l: 'Clientes / Customers', v: p.customers },
-                  { l: 'MRR', v: p.mrr },
-                ].map((m, j) => (
+              <div style={{ fontFamily: MONO, fontSize: 11, color: '#7E8C7C', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.12em' }}>{p.year}</div>
+              <div style={{ fontFamily: DISP, fontWeight: 900, fontSize: 40, letterSpacing: '-0.04em', color: '#F4F7F2', lineHeight: 1, marginBottom: 4 }}>{p.arr}</div>
+              <div style={{ fontFamily: MONO, fontSize: 10, color: '#7E8C7C', marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.1em' }}>ARR</div>
+              <div className="r-grid-2" style={{ marginBottom: 20, gap: 10 }}>
+                {[{ l: lang === 'es' ? 'Agentes' : 'Agents', v: p.agents }, { l: lang === 'es' ? 'Clientes' : 'Customers', v: p.customers }, { l: 'MRR', v: p.mrr }].map((m, j) => (
                   <div key={j} style={{ background: '#161B12', border: '1px solid #243026', borderRadius: 10, padding: '10px 12px' }}>
-                    <div style={{ ...s.mono, fontSize: 9, color: '#7E8C7C', marginBottom: 3, textTransform: 'uppercase' }}>{m.l}</div>
-                    <div style={{ fontWeight: 700, fontSize: 16, color: '#F4F7F2' }}>{m.v}</div>
+                    <div style={{ fontFamily: MONO, fontSize: 9, color: '#7E8C7C', marginBottom: 3, textTransform: 'uppercase' }}>{m.l}</div>
+                    <div style={{ fontFamily: DISP, fontWeight: 700, fontSize: 16, color: '#F4F7F2' }}>{m.v}</div>
                   </div>
                 ))}
               </div>
-              <p style={{ fontSize: 12.5, color: '#7E8C7C', lineHeight: 1.55, margin: 0 }}>{p.milestone}</p>
+              <p style={{ fontFamily: DISP, fontSize: 12.5, color: '#7E8C7C', lineHeight: 1.55, margin: 0 }}>{p.milestone}</p>
             </div>
           ))}
         </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+        <div className="r-grid-2">
           <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, padding: '28px 24px' }}>
             <div style={{ ...s.lbl, marginBottom: 24 }}>{c.finances.costs.title}</div>
             {c.finances.costs.items.map((item, i) => (
               <div key={i} style={{ marginBottom: 16 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                  <span style={{ fontSize: 13.5, color: '#B6C4B2' }}>{item.name}</span>
-                  <span style={{ ...s.mono, fontSize: 12, fontWeight: 700, color: '#A0FF79' }}>{item.pct}%</span>
+                  <span style={{ fontFamily: DISP, fontSize: 13.5, color: '#B6C4B2' }}>{item.name}</span>
+                  <span style={{ fontFamily: MONO, fontSize: 12, fontWeight: 700, color: '#A0FF79' }}>{item.pct}%</span>
                 </div>
                 <ProgressBar pct={item.pct} />
               </div>
             ))}
           </div>
           <div style={{
-            background: 'rgba(160,255,121,0.03)', border: '1.5px solid rgba(160,255,121,0.2)', borderRadius: 20, padding: '32px 28px',
-            display: 'flex', flexDirection: 'column', justifyContent: 'center',
+            background: 'rgba(160,255,121,0.03)', border: '1.5px solid rgba(160,255,121,0.2)',
+            borderRadius: 20, padding: '32px 28px', display: 'flex', flexDirection: 'column', justifyContent: 'center',
           }}>
             <div style={{ ...s.lbl, marginBottom: 16 }}>{c.finances.ask.title}</div>
-            <div style={{ fontWeight: 900, fontSize: 56, letterSpacing: '-0.05em', color: '#A0FF79', lineHeight: 1, marginBottom: 4 }}>{c.finances.ask.amount}</div>
-            <div style={{ ...s.mono, fontSize: 11, color: '#5FA855', marginBottom: 20, letterSpacing: '0.1em' }}>{c.finances.ask.subtitle}</div>
-            <p style={{ fontSize: 14, color: '#B6C4B2', lineHeight: 1.6, marginBottom: 24 }}>{c.finances.ask.desc}</p>
+            <div style={{ fontFamily: DISP, fontWeight: 900, fontSize: 56, letterSpacing: '-0.05em', color: '#A0FF79', lineHeight: 1, marginBottom: 4 }}>{c.finances.ask.amount}</div>
+            <div style={{ fontFamily: MONO, fontSize: 11, color: '#5FA855', marginBottom: 20, letterSpacing: '0.1em' }}>{c.finances.ask.subtitle}</div>
+            <p style={{ fontFamily: DISP, fontSize: 14, color: '#B6C4B2', lineHeight: 1.6, marginBottom: 24 }}>{c.finances.ask.desc}</p>
             {c.finances.ask.use.map((u, i) => (
               <div key={i} style={{ marginBottom: 12 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                  <span style={{ fontSize: 13, color: '#B6C4B2' }}>{u.name}</span>
-                  <span style={{ ...s.mono, fontSize: 12, fontWeight: 700, color: '#A0FF79' }}>{u.value}</span>
+                  <span style={{ fontFamily: DISP, fontSize: 13, color: '#B6C4B2' }}>{u.name}</span>
+                  <span style={{ fontFamily: MONO, fontSize: 12, fontWeight: 700, color: '#A0FF79' }}>{u.value}</span>
                 </div>
                 <ProgressBar pct={u.pct} color={`rgba(160,255,121,${0.4 + i * 0.15})`} />
               </div>
@@ -1263,18 +1521,17 @@ export default function BusinessPlan() {
       </section>
 
       {/* ── 06 COMPETITION ── */}
-      <section id="competition" style={{ ...s.page }}>
+      <section id="competition" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
         <div style={s.secHead}><span style={s.lbl}>{c.competition.section}</span><span style={s.num}>{c.competition.label}</span></div>
         <h2 style={s.h2}>{c.competition.title}</h2>
         <p style={s.lede}>{c.competition.intro}</p>
-
         <div style={{ overflowX: 'auto', marginBottom: 56 }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 600 }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 560 }}>
             <thead>
               <tr>
                 {c.competition.matrix.headers.map((h, i) => (
                   <th key={i} style={{
-                    ...s.mono, fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase',
+                    fontFamily: MONO, fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase',
                     color: i === 1 ? '#A0FF79' : '#7E8C7C',
                     padding: '12px 16px', textAlign: i === 0 ? 'left' : 'center',
                     borderBottom: '1px solid #243026',
@@ -1286,7 +1543,7 @@ export default function BusinessPlan() {
             <tbody>
               {c.competition.matrix.rows.map((row, i) => (
                 <tr key={i} style={{ borderBottom: '1px solid #1c231d' }}>
-                  <td style={{ padding: '13px 16px', fontSize: 13.5, color: '#B6C4B2' }}>{row.feature}</td>
+                  <td style={{ padding: '13px 16px', fontFamily: DISP, fontSize: 13.5, color: '#B6C4B2' }}>{row.feature}</td>
                   {[row.pepino, row.manychat, row.chatbase, row.tidio, row.freelancer].map((val, j) => (
                     <td key={j} style={{ padding: '13px 16px', textAlign: 'center', background: j === 0 ? 'rgba(160,255,121,0.04)' : 'transparent' }}>
                       {val === true ? <span style={{ color: '#A0FF79', fontSize: 16 }}>✓</span>
@@ -1299,53 +1556,49 @@ export default function BusinessPlan() {
             </tbody>
           </table>
         </div>
-
-        <h3 style={{ fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', marginBottom: 24, color: '#F4F7F2' }}>{c.competition.moat.title}</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
+        <h3 style={{ fontFamily: DISP, fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', marginBottom: 24, color: '#F4F7F2' }}>{c.competition.moat.title}</h3>
+        <div className="r-grid-2">
           {c.competition.moat.items.map((item, i) => (
             <div key={i} style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 16, padding: '22px 22px' }}>
-              <div style={{ ...s.mono, fontSize: 10, color: '#A0FF79', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 10 }}>0{i+1}</div>
-              <div style={{ fontWeight: 700, fontSize: 16, color: '#F4F7F2', marginBottom: 8 }}>{item.title}</div>
-              <p style={{ fontSize: 13.5, color: '#7E8C7C', lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
+              <div style={{ fontFamily: MONO, fontSize: 10, color: '#A0FF79', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 10 }}>0{i+1}</div>
+              <div style={{ fontFamily: DISP, fontWeight: 700, fontSize: 16, color: '#F4F7F2', marginBottom: 8 }}>{item.title}</div>
+              <p style={{ fontFamily: DISP, fontSize: 13.5, color: '#7E8C7C', lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── 07 TEAM ── */}
-      <section id="team" style={{ ...s.page }}>
+      <section id="team" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
         <div style={s.secHead}><span style={s.lbl}>{c.team.section}</span><span style={s.num}>{c.team.label}</span></div>
         <h2 style={s.h2}>{c.team.title}</h2>
         <p style={s.lede}>{c.team.intro}</p>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 48 }}>
+        <div style={{ marginBottom: 48 }}>
           {c.team.members.map((m, i) => (
             <div key={i} style={{
               background: 'rgba(160,255,121,0.03)', border: '1.5px solid rgba(160,255,121,0.2)',
-              borderRadius: 20, padding: '32px 32px', display: 'flex', gap: 28, flexWrap: 'wrap',
+              borderRadius: 20, padding: '32px 32px', display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'flex-start',
             }}>
-              <div style={{
-                width: 72, height: 72, borderRadius: '50%', flexShrink: 0,
-                background: 'rgba(160,255,121,0.12)', border: '2px solid rgba(160,255,121,0.3)',
-                display: 'grid', placeItems: 'center',
-                fontWeight: 900, fontSize: 28, color: '#A0FF79',
-              }}>{m.name[0]}</div>
+              <img
+                src="/manu.jpeg"
+                alt="Manuel Achinelli"
+                style={{ width: 96, height: 96, borderRadius: '50%', objectFit: 'cover', flexShrink: 0, border: '2.5px solid rgba(160,255,121,0.4)' }}
+              />
               <div style={{ flex: 1, minWidth: 200 }}>
-                <div style={{ fontWeight: 800, fontSize: 22, color: '#F4F7F2', letterSpacing: '-0.02em', marginBottom: 4 }}>{m.name}</div>
-                <Tag color={m.color}>{m.role}</Tag>
-                <p style={{ fontSize: 15, color: '#B6C4B2', lineHeight: 1.65, margin: '16px 0 12px' }}>{m.bio}</p>
-                <a href={`mailto:${m.email}`} style={{ ...s.mono, fontSize: 12, color: '#A0FF79' }}>{m.email}</a>
+                <div style={{ fontFamily: DISP, fontWeight: 800, fontSize: 22, color: '#F4F7F2', letterSpacing: '-0.02em', marginBottom: 6 }}>{m.name}</div>
+                <div style={{ marginBottom: 16 }}><Tag color={m.color}>{m.role}</Tag></div>
+                <p style={{ fontFamily: DISP, fontSize: 15, color: '#B6C4B2', lineHeight: 1.65, margin: '0 0 12px' }}>{m.bio}</p>
+                <a href={`mailto:${m.email}`} style={{ fontFamily: MONO, fontSize: 12, color: '#A0FF79' }}>{m.email}</a>
               </div>
             </div>
           ))}
         </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+        <div className="r-grid-2">
           <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, padding: '28px 24px' }}>
             <div style={{ ...s.lbl, marginBottom: 20 }}>{c.team.hiring.title}</div>
             {c.team.hiring.roles.map((r, i) => (
               <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: i < c.team.hiring.roles.length - 1 ? '1px solid #1c231d' : 'none' }}>
-                <span style={{ fontSize: 14, color: '#B6C4B2' }}>{r.role}</span>
+                <span style={{ fontFamily: DISP, fontSize: 14, color: '#B6C4B2' }}>{r.role}</span>
                 <Tag>{r.priority}</Tag>
               </div>
             ))}
@@ -1355,7 +1608,7 @@ export default function BusinessPlan() {
             {c.team.advisors.items.map((item, i) => (
               <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', padding: '10px 0', borderBottom: i < c.team.advisors.items.length - 1 ? '1px solid #1c231d' : 'none' }}>
                 <span style={{ color: '#A0FF79', flexShrink: 0 }}>›</span>
-                <span style={{ fontSize: 13.5, color: '#B6C4B2', lineHeight: 1.5 }}>{item}</span>
+                <span style={{ fontFamily: DISP, fontSize: 13.5, color: '#B6C4B2', lineHeight: 1.5 }}>{item}</span>
               </div>
             ))}
           </div>
@@ -1363,71 +1616,70 @@ export default function BusinessPlan() {
       </section>
 
       {/* ── 08 GTM ── */}
-      <section id="gtm" style={{ ...s.page }}>
+      <section id="gtm" className="r-page" style={{ borderBottom: '1px solid #243026' }}>
         <div style={s.secHead}><span style={s.lbl}>{c.gtm.section}</span><span style={s.num}>{c.gtm.label}</span></div>
         <h2 style={s.h2}>{c.gtm.title}</h2>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 20, marginBottom: 56 }}>
+        <div className="r-grid-3" style={{ marginBottom: 56 }}>
           {c.gtm.phases.map((phase, i) => (
             <div key={i} style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, padding: '28px 24px', borderTop: `3px solid ${phase.color}` }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
                 <Tag color={phase.color}>{phase.phase}</Tag>
-                <span style={{ ...s.mono, fontSize: 10, color: '#7E8C7C' }}>{phase.period}</span>
+                <span style={{ fontFamily: MONO, fontSize: 10, color: '#7E8C7C' }}>{phase.period}</span>
               </div>
-              <div style={{ fontWeight: 700, fontSize: 18, color: '#F4F7F2', marginBottom: 16 }}>{phase.title}</div>
+              <div style={{ fontFamily: DISP, fontWeight: 700, fontSize: 18, color: '#F4F7F2', marginBottom: 16 }}>{phase.title}</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
                 {phase.actions.map((a, j) => (
-                  <div key={j} style={{ display: 'flex', gap: 8, fontSize: 13, color: '#B6C4B2', alignItems: 'flex-start' }}>
+                  <div key={j} style={{ display: 'flex', gap: 8, fontFamily: DISP, fontSize: 13, color: '#B6C4B2', alignItems: 'flex-start' }}>
                     <span style={{ color: phase.color, flexShrink: 0, marginTop: 1 }}>›</span>{a}
                   </div>
                 ))}
               </div>
               <div style={{ borderTop: `1px solid ${phase.color}25`, paddingTop: 16 }}>
-                <span style={{ ...s.mono, fontSize: 10, color: '#7E8C7C', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Target: </span>
-                <span style={{ ...s.mono, fontSize: 11, fontWeight: 700, color: phase.color }}>{phase.target}</span>
+                <span style={{ fontFamily: MONO, fontSize: 10, color: '#7E8C7C', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Target: </span>
+                <span style={{ fontFamily: MONO, fontSize: 11, fontWeight: 700, color: phase.color }}>{phase.target}</span>
               </div>
             </div>
           ))}
         </div>
-
-        <h3 style={{ fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', marginBottom: 24, color: '#F4F7F2' }}>{c.gtm.acquisition.title}</h3>
         <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, overflow: 'hidden' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-            <thead>
-              <tr style={{ borderBottom: '1px solid #243026' }}>
-                {['Canal / Channel', 'Costo / Cost', 'Conversión / Conversion'].map((h, i) => (
-                  <th key={i} style={{ ...s.mono, fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#7E8C7C', padding: '14px 20px', textAlign: 'left' }}>{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {c.gtm.acquisition.items.map((item, i) => (
-                <tr key={i} style={{ borderBottom: i < c.gtm.acquisition.items.length - 1 ? '1px solid #1c231d' : 'none' }}>
-                  <td style={{ padding: '13px 20px', fontWeight: 500, fontSize: 14, color: '#F4F7F2' }}>{item.channel}</td>
-                  <td style={{ padding: '13px 20px', ...s.mono, fontSize: 12, color: '#A0FF79' }}>{item.cost}</td>
-                  <td style={{ padding: '13px 20px', fontSize: 13, color: '#B6C4B2' }}>{item.conversion}</td>
+          <div style={{ ...s.lbl, padding: '16px 20px', borderBottom: '1px solid #243026' }}>{c.gtm.acquisition.title}</div>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 400 }}>
+              <thead>
+                <tr style={{ borderBottom: '1px solid #243026' }}>
+                  {[lang === 'es' ? 'Canal' : 'Channel', lang === 'es' ? 'Costo' : 'Cost', lang === 'es' ? 'Conversión' : 'Conversion'].map((h, i) => (
+                    <th key={i} style={{ fontFamily: MONO, fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#7E8C7C', padding: '12px 20px', textAlign: 'left' }}>{h}</th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {c.gtm.acquisition.items.map((item, i) => (
+                  <tr key={i} style={{ borderBottom: i < c.gtm.acquisition.items.length - 1 ? '1px solid #1c231d' : 'none' }}>
+                    <td style={{ padding: '13px 20px', fontFamily: DISP, fontWeight: 500, fontSize: 14, color: '#F4F7F2' }}>{item.channel}</td>
+                    <td style={{ padding: '13px 20px', fontFamily: MONO, fontSize: 12, color: '#A0FF79' }}>{item.cost}</td>
+                    <td style={{ padding: '13px 20px', fontFamily: DISP, fontSize: 13, color: '#B6C4B2' }}>{item.conversion}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
       {/* ── 09 ROADMAP ── */}
-      <section id="roadmap" style={{ ...s.page, borderBottom: 'none' }}>
+      <section id="roadmap" className="r-page" style={{ borderBottom: 'none' }}>
         <div style={s.secHead}><span style={s.lbl}>{c.roadmap.section}</span><span style={s.num}>{c.roadmap.label}</span></div>
         <h2 style={s.h2}>{c.roadmap.title}</h2>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 16, marginBottom: 56 }}>
+        <div className="r-grid-4" style={{ marginBottom: 48 }}>
           {c.roadmap.quarters.map((q, i) => (
             <div key={i} style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 20, padding: '24px 22px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-                <span style={{ fontWeight: 800, fontSize: 17, color: q.color, letterSpacing: '-0.01em' }}>{q.q}</span>
+                <span style={{ fontFamily: DISP, fontWeight: 800, fontSize: 17, color: q.color, letterSpacing: '-0.01em' }}>{q.q}</span>
                 <Tag color={q.color}>{q.status}</Tag>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
                 {q.items.map((item, j) => (
-                  <div key={j} style={{ display: 'flex', gap: 8, fontSize: 13, color: '#B6C4B2', alignItems: 'flex-start' }}>
+                  <div key={j} style={{ display: 'flex', gap: 8, fontFamily: DISP, fontSize: 13, color: '#B6C4B2', alignItems: 'flex-start' }}>
                     <span style={{ color: q.color, flexShrink: 0, marginTop: 1, fontSize: 10 }}>◆</span>{item}
                   </div>
                 ))}
@@ -1435,7 +1687,6 @@ export default function BusinessPlan() {
             </div>
           ))}
         </div>
-
         <div style={{
           background: 'rgba(160,255,121,0.03)', border: '1.5px solid rgba(160,255,121,0.18)',
           borderRadius: 20, padding: '40px 40px', position: 'relative', overflow: 'hidden',
@@ -1447,7 +1698,7 @@ export default function BusinessPlan() {
             pointerEvents: 'none',
           }} />
           <div style={{ ...s.lbl, marginBottom: 16 }}>{c.roadmap.vision.title}</div>
-          <p style={{ fontSize: 18, color: '#B6C4B2', lineHeight: 1.7, maxWidth: 680, fontWeight: 300, margin: 0 }}>
+          <p style={{ fontFamily: DISP, fontSize: 18, color: '#B6C4B2', lineHeight: 1.7, maxWidth: 680, fontWeight: 300, margin: 0 }}>
             {c.roadmap.vision.body}
           </p>
         </div>
@@ -1460,21 +1711,21 @@ export default function BusinessPlan() {
         padding: '80px 48px', gap: 16, textAlign: 'center',
       }}>
         <CucumberLogo size={56} />
-        <div style={{ fontWeight: 900, fontSize: 'clamp(28px, 5vw, 52px)', letterSpacing: '-0.04em', color: '#F4F7F2', marginTop: 8 }}>
+        <div style={{ fontFamily: DISP, fontWeight: 900, fontSize: 'clamp(24px, 5vw, 52px)', letterSpacing: '-0.04em', color: '#F4F7F2', marginTop: 8 }}>
           {c.closing.title}
         </div>
-        <div style={{ fontWeight: 800, fontSize: 'clamp(22px, 4vw, 38px)', letterSpacing: '-0.03em' }}>
+        <div style={{ fontFamily: DISP, fontWeight: 800, fontSize: 'clamp(20px, 4vw, 38px)', letterSpacing: '-0.03em' }}>
           <span style={{ color: '#A0FF79' }}>Pepino</span>
           <span style={{ fontFamily: MONO, fontSize: '0.55em', verticalAlign: 'super', marginLeft: 4 }}>AI</span>
         </div>
-        <div style={{ height: 32 }} />
-        <div style={{ ...s.mono, fontSize: 10, color: '#7E8C7C', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 4 }}>
+        <div style={{ height: 24 }} />
+        <div style={{ fontFamily: MONO, fontSize: 10, color: '#7E8C7C', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 4 }}>
           {c.closing.contact}
         </div>
-        <a href={`mailto:${c.closing.email}`} style={{ ...s.mono, fontSize: 15, color: '#A0FF79', textDecoration: 'none', fontWeight: 700 }}>
+        <a href={`mailto:${c.closing.email}`} style={{ fontFamily: MONO, fontSize: 15, color: '#A0FF79', textDecoration: 'none', fontWeight: 700 }}>
           {c.closing.email}
         </a>
-        <div style={{ marginTop: 40, ...s.mono, fontSize: 10, color: '#4a5a48', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+        <div style={{ marginTop: 32, fontFamily: MONO, fontSize: 10, color: '#4a5a48', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
           {c.closing.version}
         </div>
       </footer>
@@ -1494,23 +1745,16 @@ function CucumberLogo({ size = 32 }) {
   const seedR = r * 0.065
   const seedOrbit = r * 0.46
   const coreR = r * 0.13
-
   const seedPoints = Array.from({ length: seeds }, (_, i) => {
     const angle = (i / seeds) * 2 * Math.PI - Math.PI / 2
-    return {
-      x: r + Math.cos(angle) * seedOrbit,
-      y: r + Math.sin(angle) * seedOrbit,
-    }
+    return { x: r + Math.cos(angle) * seedOrbit, y: r + Math.sin(angle) * seedOrbit }
   })
-
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none">
       <circle cx={r} cy={r} r={outerR} fill="#A0FF79" />
       <circle cx={r} cy={r} r={outerR - skinW} fill="#0B0E0C" />
       <circle cx={r} cy={r} r={innerR} fill="#A0FF79" />
-      {seedPoints.map((pt, i) => (
-        <circle key={i} cx={pt.x} cy={pt.y} r={seedR} fill="#0B0E0C" />
-      ))}
+      {seedPoints.map((pt, i) => <circle key={i} cx={pt.x} cy={pt.y} r={seedR} fill="#0B0E0C" />)}
       <circle cx={r} cy={r} r={coreR} fill="#0B0E0C" />
     </svg>
   )
