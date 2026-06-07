@@ -6,6 +6,13 @@ export const metadata = {
   openGraph: {
     title: 'Pepino AI — Business Plan',
     description: 'AI agents for every business, via WhatsApp.',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pepino AI — Business Plan',
+    description: 'AI agents for every business, via WhatsApp.',
+    images: ['/opengraph-image'],
   },
 }
 
