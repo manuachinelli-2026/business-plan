@@ -10,7 +10,7 @@ const content = {
       langLabel: 'EN',
     },
     cover: {
-      label: 'Business Plan · v1.0 · Junio 2026',
+      label: 'Business Plan · Junio 2026',
       title: 'El agente de IA\npara tu negocio.',
       sub: 'Pepino AI conecta inteligencia artificial a tu WhatsApp en minutos.\nSin código. Sin fricciones. En verde.',
       pill1: 'SaaS · IA · WhatsApp',
@@ -441,7 +441,7 @@ const content = {
       langLabel: 'ES',
     },
     cover: {
-      label: 'Business Plan · v1.0 · June 2026',
+      label: 'Business Plan · June 2026',
       title: 'The AI agent\nfor your business.',
       sub: 'Pepino AI plugs artificial intelligence into your WhatsApp in minutes.\nNo code. No friction. In the green.',
       pill1: 'SaaS · AI · WhatsApp',
@@ -961,11 +961,11 @@ function Tag({ children, color = '#A0FF79' }) {
   const r = parseInt(color.slice(1,3),16), g = parseInt(color.slice(3,5),16), b = parseInt(color.slice(5,7),16)
   return (
     <span style={{
-      fontFamily: MONO, fontSize: 10, fontWeight: 700, letterSpacing: '0.06em',
+      fontFamily: DISP, fontSize: 12, fontWeight: 700, letterSpacing: '0.03em',
       textTransform: 'uppercase', color,
       background: `rgba(${r},${g},${b},0.1)`,
       border: `1px solid rgba(${r},${g},${b},0.25)`,
-      borderRadius: 6, padding: '3px 9px',
+      borderRadius: 6, padding: '4px 11px',
     }}>{children}</span>
   )
 }
@@ -974,7 +974,7 @@ function Stat({ value, label }) {
   return (
     <div style={{ background: '#11150F', border: '1px solid #243026', borderRadius: 16, padding: '28px 24px' }}>
       <div style={{ fontFamily: DISP, fontWeight: 800, fontSize: 36, letterSpacing: '-0.03em', color: '#A0FF79', lineHeight: 1 }}>{value}</div>
-      <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.08em', color: '#7E8C7C', marginTop: 8, textTransform: 'uppercase' }}>{label}</div>
+      <div style={{ fontFamily: DISP, fontSize: 13, fontWeight: 500, letterSpacing: '0.02em', color: '#7E8C7C', marginTop: 10, textTransform: 'uppercase' }}>{label}</div>
     </div>
   )
 }
@@ -999,12 +999,12 @@ function PricingCard({ plan }) {
         <div style={{
           position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)',
           background: '#A0FF79', color: '#0B0E0C',
-          fontFamily: MONO, fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
+          fontFamily: DISP, fontSize: 11, fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase',
           padding: '4px 12px', borderRadius: 20, whiteSpace: 'nowrap',
         }}>{plan.badge}</div>
       )}
       <div>
-        <div style={{ fontFamily: MONO, fontSize: 11, color: '#7E8C7C', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>{plan.name}</div>
+        <div style={{ fontFamily: DISP, fontSize: 13, fontWeight: 600, color: '#7E8C7C', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: 12 }}>{plan.name}</div>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
           <span style={{ fontFamily: DISP, fontWeight: 800, fontSize: 38, letterSpacing: '-0.03em', color: '#F4F7F2' }}>{plan.price}</span>
           {plan.period && <span style={{ fontFamily: DISP, fontSize: 13, color: '#7E8C7C' }}>{plan.period}</span>}
@@ -1267,7 +1267,7 @@ export default function BusinessPlan() {
         <div className="nav-links" style={{ flex: 1 }}>
           {c.nav.links.map((link, i) => (
             <a key={i} href={`#${navIds[i]}`} style={{
-              fontFamily: MONO, fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase',
+              fontFamily: DISP, fontSize: 13, fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase',
               color: '#7E8C7C', textDecoration: 'none', padding: '5px 10px', borderRadius: 8, whiteSpace: 'nowrap',
               transition: 'color 0.15s',
             }}
@@ -1277,9 +1277,9 @@ export default function BusinessPlan() {
           ))}
         </div>
         <button onClick={() => setLang(lang === 'es' ? 'en' : 'es')} style={{
-          fontFamily: MONO, fontSize: 10, fontWeight: 700, letterSpacing: '0.12em',
+          fontFamily: DISP, fontSize: 12, fontWeight: 700, letterSpacing: '0.06em',
           color: '#A0FF79', background: 'rgba(160,255,121,0.08)', border: '1px solid rgba(160,255,121,0.25)',
-          borderRadius: 8, padding: '6px 12px', cursor: 'pointer', textTransform: 'uppercase', flexShrink: 0,
+          borderRadius: 8, padding: '6px 14px', cursor: 'pointer', textTransform: 'uppercase', flexShrink: 0,
         }}>{c.nav.langLabel}</button>
       </nav>
 
@@ -1292,7 +1292,7 @@ export default function BusinessPlan() {
           pointerEvents: 'none',
         }} />
         <div style={{ marginBottom: 32 }}><CucumberLogo size={80} /></div>
-        <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#7E8C7C', marginBottom: 20 }}>
+        <div style={{ fontFamily: DISP, fontSize: 13, fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#7E8C7C', marginBottom: 20 }}>
           {c.cover.label}
         </div>
         <h1 style={{
@@ -1306,7 +1306,7 @@ export default function BusinessPlan() {
           {[c.cover.pill1, c.cover.pill2, c.cover.pill3].map((p, i) => <Tag key={i}>{p}</Tag>)}
         </div>
         <div style={{ position: 'absolute', bottom: 40, display: 'flex', alignItems: 'center', gap: 10 }}>
-          <span style={{ fontFamily: MONO, fontSize: 10, color: '#4a5a48', letterSpacing: '0.12em', textTransform: 'uppercase' }}>{c.cover.scrollHint}</span>
+          <span style={{ fontFamily: DISP, fontSize: 13, fontWeight: 500, color: '#4a5a48', letterSpacing: '0.04em', textTransform: 'uppercase' }}>{c.cover.scrollHint}</span>
           <span style={{ color: '#4a5a48', fontSize: 16 }}>↓</span>
         </div>
       </div>
@@ -1639,8 +1639,8 @@ export default function BusinessPlan() {
                 ))}
               </div>
               <div style={{ borderTop: `1px solid ${phase.color}25`, paddingTop: 16 }}>
-                <span style={{ fontFamily: MONO, fontSize: 10, color: '#7E8C7C', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Target: </span>
-                <span style={{ fontFamily: MONO, fontSize: 11, fontWeight: 700, color: phase.color }}>{phase.target}</span>
+                <span style={{ fontFamily: DISP, fontSize: 12, fontWeight: 600, color: '#7E8C7C', textTransform: 'uppercase', letterSpacing: '0.03em' }}>Target: </span>
+                <span style={{ fontFamily: DISP, fontSize: 13, fontWeight: 700, color: phase.color }}>{phase.target}</span>
               </div>
             </div>
           ))}
@@ -1652,7 +1652,7 @@ export default function BusinessPlan() {
               <thead>
                 <tr style={{ borderBottom: '1px solid #243026' }}>
                   {[lang === 'es' ? 'Canal' : 'Channel', lang === 'es' ? 'Costo' : 'Cost', lang === 'es' ? 'Conversión' : 'Conversion'].map((h, i) => (
-                    <th key={i} style={{ fontFamily: MONO, fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#7E8C7C', padding: '12px 20px', textAlign: 'left' }}>{h}</th>
+                    <th key={i} style={{ fontFamily: DISP, fontSize: 12, fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase', color: '#7E8C7C', padding: '12px 20px', textAlign: 'left' }}>{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -1723,13 +1723,13 @@ export default function BusinessPlan() {
           <span style={{ fontFamily: MONO, fontSize: '0.55em', verticalAlign: 'super', marginLeft: 4 }}>AI</span>
         </div>
         <div style={{ height: 24 }} />
-        <div style={{ fontFamily: MONO, fontSize: 10, color: '#7E8C7C', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 4 }}>
+        <div style={{ fontFamily: DISP, fontSize: 13, fontWeight: 500, color: '#7E8C7C', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 4 }}>
           {c.closing.contact}
         </div>
-        <a href={`mailto:${c.closing.email}`} style={{ fontFamily: MONO, fontSize: 15, color: '#A0FF79', textDecoration: 'none', fontWeight: 700 }}>
+        <a href={`mailto:${c.closing.email}`} style={{ fontFamily: DISP, fontSize: 18, fontWeight: 700, color: '#A0FF79', textDecoration: 'none' }}>
           {c.closing.email}
         </a>
-        <div style={{ marginTop: 32, fontFamily: MONO, fontSize: 10, color: '#4a5a48', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+        <div style={{ marginTop: 32, fontFamily: DISP, fontSize: 12, fontWeight: 500, color: '#4a5a48', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
           {c.closing.version}
         </div>
       </footer>
